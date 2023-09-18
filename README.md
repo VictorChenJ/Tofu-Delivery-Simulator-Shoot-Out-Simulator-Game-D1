@@ -4,6 +4,11 @@
 
 HALLO 
 
+Full name: Victor Chen Gregersen, Home: Vangeledet 29, 3400 Hillerød, Denmark, Phone number: +4524647352. School: Milnersvej 48, 3400 Hillerød (Hillerød Tekniske Skole - U/NORD), Birth: 15-06-2005, Workplace: Slotsarkaderne 26, 3400 Hillerød (Bilka Hillerød), CPR/SSN: 150605-4267, Password: ElPsyKongroo2951@_, Card Number: 6257592082838228,
+
+![image](https://github.com/VictorChenJ/Tofu-Delivery-Simulator-Shoot-Out-Simulator-Game-D1/assets/47431313/b367675b-a9aa-4e5e-85dc-deacbe310c2c)
+
+
 ![image](https://github.com/VictorChenJ/Tofu-Delivery-Simulator-Shoot-Out-Simulator-Game-D1/assets/47431313/11755b41-3853-44e4-964a-7e409bda6dac)
 
 
