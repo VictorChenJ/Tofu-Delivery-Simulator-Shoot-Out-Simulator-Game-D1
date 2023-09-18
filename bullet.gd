@@ -8,13 +8,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position += velocity * delta
-	
 	duration -= delta
 	if duration <= 0:
 		queue_free()
 
-func _on_body_entered(body):
+func _on_body_entered(body: Node) -> void:
 	# 'body' er tingen som bullet rammer
 	if body.is_in_group("players"):
-		body.take_damage(1)
+		if body.has.method("take_damage"):
+			body.take_damage(1)
 		queue_free()

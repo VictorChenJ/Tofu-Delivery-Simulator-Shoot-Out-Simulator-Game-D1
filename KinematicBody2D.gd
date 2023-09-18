@@ -53,6 +53,7 @@ func get_input():
 	steer_angle = turn * steering_angle
 	if Input.is_action_pressed("accelerate"):
 		acceleration = transform.x * engine_power
+		print(hp)
 	if Input.is_action_pressed("brake"):
 		acceleration = transform.x * braking
 

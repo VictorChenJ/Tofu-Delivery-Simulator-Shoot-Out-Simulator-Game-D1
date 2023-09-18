@@ -1,16 +1,9 @@
 extends RigidBody2D
 
+const obj_bullet = preload("res://bullet.tscn")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func shoot(direction: float, speed: float):
+	var new_bullet = obj_bullet.instance()
+	new_bullet.velocity = Vector2(speed, 0).rotated(deg2rad(direction))
+	new_bullet.position = position
+	get_parent().add_child(new_bullet)
