@@ -1,5 +1,6 @@
 # Tofu-Delivery-Simulator-Shoot-Out-Simulator-Game-D1
 
+![image](https://github.com/VictorChenJ/Tofu-Delivery-Simulator-Shoot-Out-Simulator-Game-D1/assets/47431313/bacc6d2a-769b-4772-a835-7e91816f3904)
 
 HALLO 
 
