@@ -1,5 +1,13 @@
 extends KinematicBody2D
 
+#Hp related
+var hp = 5 setget set_hp
+
+signal hp_changed
+signal died
+
+
+
 var wheel_base = 100  # Distance from front to rear wheel
 var steering_angle = 5  # Amount that front wheel turns, in degrees
 
@@ -64,3 +72,16 @@ func calculate_steering(delta):
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
 
+#hp stuff
+func take_damage ( dmg ):
+	set_hp(hp - dmg)
+
+func set_hp( new_hp ):
+	emit_signal("hp_changed", new_hp)
+	hp = new_hp
+	if hp <= 0:
+		die()
+		
+func die():
+	emit_signal("died")
+	queue_free()

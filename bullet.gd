@@ -5,7 +5,7 @@ var duration = 20
 
 func _ready() -> void:
 	connect("body_entered", self, "_on_body_entered")
-	
+
 func _process(delta: float) -> void:
 	position += velocity * delta
 	
