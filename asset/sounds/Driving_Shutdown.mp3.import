@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Driving_Shutdown.mp3-431889d1b24e1bf79a0f24e58f1b0e2d.mp3str"
+
+[deps]
+
+source_file="res://asset/sounds/Driving_Shutdown.mp3"
+dest_files=[ "res://.import/Driving_Shutdown.mp3-431889d1b24e1bf79a0f24e58f1b0e2d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
