@@ -26,6 +26,7 @@ scale = Vector2( 3.2, 3.2 )
 
 [node name="GunshotSoundPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+volume_db = -10.0
 
 [node name="Area2D" type="Area2D" parent="."]
 
