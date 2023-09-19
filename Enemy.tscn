@@ -6,8 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.5, 31.5 )
 
-[node name="RigidBody2D" type="RigidBody2D"]
-gravity_scale = 0.0
+[node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -20,5 +19,3 @@ shape = SubResource( 1 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( -6.3777e-07, -5.36442e-07 )
 scale = Vector2( 3.2, 3.2 )
-
-[connection signal="body_entered" from="." to="." method="_on_RigidBody2D_body_entered"]
