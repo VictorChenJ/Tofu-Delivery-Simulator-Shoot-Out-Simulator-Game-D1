@@ -31,6 +31,8 @@ func shoot(direction: float, speed: float):
 	new_bullet.velocity = Vector2(speed, 0).rotated(deg2rad(direction))
 	new_bullet.position = position
 	get_parent().add_child(new_bullet)
+	$GunshotSoundPlayer.play()
+	
 
 func _process(delta):
 	timer += delta
