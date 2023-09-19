@@ -4,6 +4,8 @@ extends KinematicBody2D
 
 const obj_bullet = preload("res://Scenes/bullet.tscn")
 var plpos =0
+var timer = 0
+var time_interval = 5.0
 
 func shoot(direction: float, speed: float):
 	var new_bullet = obj_bullet.instance()
@@ -12,7 +14,11 @@ func shoot(direction: float, speed: float):
 	get_parent().add_child(new_bullet)
 
 func _process(delta):
-	shoot(plpos, 100)
+	timer += delta
+	
+	if timer >= time_interval:
+		shoot(plpos, 100)
+		timer = 0
 
 func _ready():
 	connect("playerposition", self, "_on_Player_playerposition")
