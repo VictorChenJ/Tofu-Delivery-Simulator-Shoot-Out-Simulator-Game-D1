@@ -1,10 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://PlayerDriver.gd" type="Script" id=1]
-[ext_resource path="res://carrotated.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/PlayerDriver.gd" type="Script" id=1]
+[ext_resource path="res://asset/character/carrotated.png" type="Texture" id=2]
 [ext_resource path="res://asset/sounds/Driving Startup.mp3" type="AudioStream" id=3]
 [ext_resource path="res://asset/sounds/Driving_Shutdown.mp3" type="AudioStream" id=4]
-[ext_resource path="res://Lights_ON_002.png" type="Texture" id=5]
+[ext_resource path="res://asset/character/Lights_ON_002.png" type="Texture" id=5]
+
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 10 )
