@@ -1,7 +1,7 @@
 extends KinematicBody2D
  
 #Enemy health
-var Ehp = 1 setget set_Ehp
+var Ehp = 10 setget set_Ehp
 
 signal Ehp_changed
 
@@ -16,7 +16,7 @@ var player = null
 const obj_bullet = preload("res://Scenes/bullet.tscn")
 var plpos = 0
 var timer = 0
-var time_interval = 1.0
+var time_interval = 1.5
 
 #Følger efter player
 func _physics_process(delta):
@@ -39,7 +39,7 @@ func _process(delta):
 	
 	if player:
 		if timer >= time_interval:
-			shoot(plpos, 400)
+			shoot(plpos, 800)
 			timer = 0
 
 func _ready():
