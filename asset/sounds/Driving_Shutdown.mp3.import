@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Driving_Shutdown.mp3-431889d1b24e1bf79a0f24e58f1b0e2
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Driving_Whole_file.mp3-4ffa19a2a2656677d9b3aa153f316
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
