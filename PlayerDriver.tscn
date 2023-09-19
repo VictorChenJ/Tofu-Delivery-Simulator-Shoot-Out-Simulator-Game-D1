@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://PlayerDriver.gd" type="Script" id=1]
 [ext_resource path="res://carrotated.png" type="Texture" id=2]
 [ext_resource path="res://asset/sounds/Driving Startup.mp3" type="AudioStream" id=3]
 [ext_resource path="res://asset/sounds/Driving_Shutdown.mp3" type="AudioStream" id=4]
