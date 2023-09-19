@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/PlayerDriver.gd" type="Script" id=1]
 [ext_resource path="res://asset/character/carrotated.png" type="Texture" id=2]
 [ext_resource path="res://asset/sounds/Driving Startup.mp3" type="AudioStream" id=3]
 [ext_resource path="res://asset/sounds/Driving_Shutdown.mp3" type="AudioStream" id=4]
 [ext_resource path="res://asset/character/Lights_ON_002.png" type="Texture" id=5]
+[ext_resource path="res://asset/sounds/Gun_Shot.mp3" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 10 )
@@ -41,6 +42,10 @@ pitch_scale = 1.3
 [node name="DrivingShutdownPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 pitch_scale = 1.3
+
+[node name="GunShotSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 90, -4.5 )
