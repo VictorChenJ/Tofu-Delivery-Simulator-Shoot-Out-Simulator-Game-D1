@@ -98,10 +98,10 @@ func play_driving_sounds():
 		
 func stop_driving_sounds():
 	$DrivingSoundPlayer.stop()
-	$DrivingStartupPlayer.stop()
 	if(drivingStartupSound == false):
-		$DrivingShutdownPlayer.play()
-	drivingStartupSound = true
+		if(!$DrivingStartupPlayer.playing):
+			$DrivingShutdownPlayer.play()
+			drivingStartupSound = true
 
 #hp stuff
 func take_damage ( dmg ):
