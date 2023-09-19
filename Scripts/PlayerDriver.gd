@@ -8,7 +8,7 @@ signal died
 signal playerposition
 
 #PlayerBullet
-const obj_bullet = preload("res://Scenes/PlayerBullet.tscn")
+const obj_PlayerBullet = preload("res://Scenes/PlayerBullet.tscn")
 var mouse_position = null
 var timer = 0
 var time_interval = 1.0
@@ -130,9 +130,9 @@ func _process(delta):
 
 #PlayerBullet
 func shoot(direction: float, speed: float):
-	var new_bullet = obj_bullet.instance()
-	new_bullet.velocity = Vector2(speed, 0).rotated(deg2rad(direction))
-	new_bullet.position = position
-	get_parent().add_child(new_bullet)
+	var new_PlayerBullet = obj_PlayerBullet.instance()
+	new_PlayerBullet.velocity = Vector2(speed, 0).rotated(deg2rad(direction))
+	new_PlayerBullet.position = position
+	get_parent().add_child(new_PlayerBullet)
 	$GunShotSoundPlayer.play()
 	
