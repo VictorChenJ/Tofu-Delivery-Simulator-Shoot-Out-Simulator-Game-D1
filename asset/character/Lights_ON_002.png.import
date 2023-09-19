@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/carrotated.png-48f63c1c530e643d2d8d14425f337033.stex"
+path="res://.import/Lights_ON_002.png-b6aac9ee00c2b05c116eb1657d288836.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://carrotated.png"
-dest_files=[ "res://.import/carrotated.png-48f63c1c530e643d2d8d14425f337033.stex" ]
+source_file="res://asset/character/Lights_ON_002.png"
+dest_files=[ "res://.import/Lights_ON_002.png-b6aac9ee00c2b05c116eb1657d288836.stex" ]
 
 [params]
 

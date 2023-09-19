@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lights_ON_002.png-a5bced4f62f251dc8456b0424d905004.stex"
+path="res://.import/icon - Kopi.png-7364b9f0a3f5cba9926479feb99378cc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Lights_ON_002.png"
-dest_files=[ "res://.import/Lights_ON_002.png-a5bced4f62f251dc8456b0424d905004.stex" ]
+source_file="res://asset/icon - Kopi.png"
+dest_files=[ "res://.import/icon - Kopi.png-7364b9f0a3f5cba9926479feb99378cc.stex" ]
 
 [params]
 
