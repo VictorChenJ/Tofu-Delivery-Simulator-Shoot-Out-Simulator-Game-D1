@@ -1,7 +1,7 @@
 extends KinematicBody2D
  
 # I like to have these scenes start with obj_, to distinguish them from other similarly named variables
-const obj_bullet = preload("res://bullet.tscn")
+const obj_bullet = preload("res://Scenes/bullet.tscn")
  
 func shoot(direction: float, speed: float):
 	var new_bullet = obj_bullet.instance()
