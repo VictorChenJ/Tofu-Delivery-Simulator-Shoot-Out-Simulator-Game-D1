@@ -18,7 +18,7 @@ var plpos =0
 var timer = 0
 var time_interval = 1.0
 
-
+#Følger efter player
 func _physics_process(delta):
 	motion = Vector2.ZERO
 	if player:
@@ -37,9 +37,10 @@ func shoot(direction: float, speed: float):
 func _process(delta):
 	timer += delta
 	
-	if timer >= time_interval:
-		shoot(plpos, 400)
-		timer = 0
+	if player:
+		if timer >= time_interval:
+			shoot(plpos, 400)
+			timer = 0
 
 func _ready():
 	connect("playerposition", self, "_on_Player_playerposition")
@@ -74,5 +75,5 @@ func set_Ehp( new_Ehp ):
 		die()
 		
 func die():
-	emit_signal("died")
+	emit_signal("e_died")
 	queue_free()
