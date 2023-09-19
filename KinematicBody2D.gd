@@ -1,5 +1,13 @@
 extends KinematicBody2D
 
+#Hp related
+var hp = 5 setget set_hp
+
+signal hp_changed
+signal died
+
+
+
 var wheel_base = 100  # Distance from front to rear wheel
 var steering_angle = 5  # Amount that front wheel turns, in degrees
 
@@ -50,6 +58,7 @@ func get_input():
 	steer_angle = turn * steering_angle
 	if Input.is_action_pressed("accelerate"):
 		acceleration = transform.x * engine_power
+		print(hp)
 		play_driving_sounds()
 		accelerating = true
 	elif(!braking):
@@ -92,3 +101,17 @@ func stop_driving_sounds():
 	if(drivingStartupSound == false):
 		$DrivingShutdownPlayer.play()
 	drivingStartupSound = true
+
+#hp stuff
+func take_damage ( dmg ):
+	set_hp(hp - dmg)
+
+func set_hp( new_hp ):
+	emit_signal("hp_changed", new_hp)
+	hp = new_hp
+	if hp <= 0:
+		die()
+		
+func die():
+	emit_signal("died")
+	queue_free()
