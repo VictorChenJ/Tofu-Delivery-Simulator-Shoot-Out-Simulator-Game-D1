@@ -1,5 +1,11 @@
 extends KinematicBody2D
  
+#Enemy health
+var Ehp = 1 setget set_Ehp
+
+signal Ehp_changed
+
+
 #Enemy movement
 var speed = 200
 var motion = Vector2.ZERO
@@ -54,3 +60,17 @@ func _on_Area2D_body_exited(body):
 		print("exit")
 		player = null
 	pass # Replace with function body.
+
+#Enemy health
+func take_damage ( dmg ):
+	set_Ehp(Ehp - dmg)
+
+func set_Ehp( new_Ehp ):
+	emit_signal("Ehp_changed", new_Ehp)
+	Ehp = new_Ehp
+	if Ehp <= 0:
+		die()
+		
+func die():
+	emit_signal("died")
+	queue_free()

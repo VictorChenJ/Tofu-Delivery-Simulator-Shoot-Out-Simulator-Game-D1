@@ -7,6 +7,11 @@ signal hp_changed
 signal died
 signal playerposition
 
+#PlayerBullet
+const obj_bullet = preload("res://Scenes/PlayerBullet.tscn")
+var mouse_position = null
+var timer = 0
+var time_interval = 1.0
 
 
 var wheel_base = 100  # Distance from front to rear wheel
@@ -72,6 +77,9 @@ func get_input():
 	elif(!accelerating):
 		stop_driving_sounds()
 		braking = false
+	if Input.is_action_just_pressed("left_click"):
+		mouse_position = rad2deg(get_angle_to(get_global_mouse_position())+rotation)
+		shoot(mouse_position,600)
 
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base / 2.0
@@ -119,3 +127,10 @@ func die():
 	
 func _process(delta):
 	emit_signal("playerposition", position)
+
+#PlayerBullet
+func shoot(direction: float, speed: float):
+	var new_bullet = obj_bullet.instance()
+	new_bullet.velocity = Vector2(speed, 0).rotated(deg2rad(direction))
+	new_bullet.position = position
+	get_parent().add_child(new_bullet)
