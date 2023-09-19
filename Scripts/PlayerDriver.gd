@@ -6,8 +6,6 @@ var hp = 5 setget set_hp
 signal hp_changed
 signal died
 
-
-
 var wheel_base = 100  # Distance from front to rear wheel
 var steering_angle = 5  # Amount that front wheel turns, in degrees
 
