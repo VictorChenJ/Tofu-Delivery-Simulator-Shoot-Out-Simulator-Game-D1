@@ -5,7 +5,7 @@ var hp = 5 setget set_hp
 
 signal hp_changed
 signal died
-
+signal playerposition
 
 
 var wheel_base = 100  # Distance from front to rear wheel
@@ -115,3 +115,6 @@ func set_hp( new_hp ):
 func die():
 	emit_signal("died")
 	queue_free()
+	
+func _process(delta):
+	emit_signal("playerposition", position)

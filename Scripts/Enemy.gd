@@ -1,8 +1,10 @@
 extends KinematicBody2D
  
 # I like to have these scenes start with obj_, to distinguish them from other similarly named variables
+
 const obj_bullet = preload("res://Scenes/bullet.tscn")
- 
+var plpos =0
+
 func shoot(direction: float, speed: float):
 	var new_bullet = obj_bullet.instance()
 	new_bullet.velocity = Vector2(speed, 0).rotated(deg2rad(direction))
@@ -10,4 +12,12 @@ func shoot(direction: float, speed: float):
 	get_parent().add_child(new_bullet)
 
 func _process(delta):
-	shoot(10, 100)
+	shoot(plpos, 100)
+
+func _ready():
+	connect("playerposition", self, "_on_Player_playerposition")
+	
+func _on_Player_playerposition(val):
+	plpos=rad2deg(get_angle_to(val))
+
+	pass # Replace with function body.

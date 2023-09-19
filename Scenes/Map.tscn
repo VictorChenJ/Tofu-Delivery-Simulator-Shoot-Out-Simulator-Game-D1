@@ -100,3 +100,5 @@ position = Vector2( 227, 184 )
 
 [node name="Tofu2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 132, 171 )
+
+[connection signal="playerposition" from="Player" to="Enemy" method="_on_Player_playerposition"]
