@@ -6,7 +6,6 @@
 [ext_resource path="res://asset/sounds/Driving_Shutdown.mp3" type="AudioStream" id=4]
 [ext_resource path="res://asset/character/Lights_ON_002.png" type="Texture" id=5]
 
-
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 10 )
 
