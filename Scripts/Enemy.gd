@@ -43,12 +43,14 @@ func _on_Player_playerposition(val):
 
 
 func _on_Area2D_body_entered(body):
-	print("enter")
-	player = body
+	if body.is_in_group("players"):
+		print("enter")
+		player = body
 	pass # Replace with function body.
 
 
 func _on_Area2D_body_exited(body):
-	print("exit")
-	player = null
+	if body.is_in_group("players"):
+		print("exit")
+		player = null
 	pass # Replace with function body.
