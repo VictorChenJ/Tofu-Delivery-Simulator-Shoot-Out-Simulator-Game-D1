@@ -20,12 +20,17 @@ var acceleration = Vector2.ZERO
 
 var friction = -0.9
 var drag = -0.0015
-var braking = -450
+var braking_power = -450
 var max_speed_reverse = 250
 
 var slip_speed = 400  # Speed where traction is reduced
 var traction_fast = 0.1  # High-speed traction
 var traction_slow = 0.7  # Low-speed traction
+
+var drivingStartupSound = true # Determines wether the car plays the driving startup sound or not
+
+var accelerating = false
+var braking = false
 
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
@@ -54,8 +59,18 @@ func get_input():
 	if Input.is_action_pressed("accelerate"):
 		acceleration = transform.x * engine_power
 		print(hp)
+		play_driving_sounds()
+		accelerating = true
+	elif(!braking):
+		stop_driving_sounds()
+		accelerating = false
 	if Input.is_action_pressed("brake"):
-		acceleration = transform.x * braking
+		acceleration = transform.x * braking_power
+		play_driving_sounds()
+		braking = true
+	elif(!accelerating):
+		stop_driving_sounds()
+		braking = false
 
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base / 2.0
@@ -72,6 +87,20 @@ func calculate_steering(delta):
 	if d < 0:
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
+
+func play_driving_sounds():
+	if(!$DrivingStartupPlayer.playing && drivingStartupSound):
+		$DrivingStartupPlayer.play()
+		drivingStartupSound = false
+	if(!$DrivingSoundPlayer.playing && !$DrivingStartupPlayer.playing):
+		$DrivingSoundPlayer.play()
+		
+func stop_driving_sounds():
+	$DrivingSoundPlayer.stop()
+	$DrivingStartupPlayer.stop()
+	if(drivingStartupSound == false):
+		$DrivingShutdownPlayer.play()
+	drivingStartupSound = true
 
 #hp stuff
 func take_damage ( dmg ):
