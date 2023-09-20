@@ -14,6 +14,7 @@ const obj_bullet = preload("res://Scenes/bullet.tscn")
 var plpos = 0
 var timer = 0
 var time_interval = 1.0
+var attack_speed = 0.15
 
 # Følger efter player
 func _physics_process(delta):
@@ -32,7 +33,7 @@ func shoot(direction: float, speed: float):
 	$GunshotSoundPlayer.play()
 
 func _process(delta):
-	timer += delta
+	timer += attack_speed
 
 	if player:
 		_on_Player_playerposition(player.position)
