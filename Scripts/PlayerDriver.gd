@@ -150,6 +150,7 @@ func shoot(direction: float, speed: float):
 	new_PlayerBullet.velocity = Vector2(speed, 0).rotated(deg2rad(direction))
 	new_PlayerBullet.position = position
 	get_parent().add_child(new_PlayerBullet)
+	new_PlayerBullet.rotate(deg2rad(direction))
 	$GunShotSoundPlayer.play()
 	
 #tofu delivery
