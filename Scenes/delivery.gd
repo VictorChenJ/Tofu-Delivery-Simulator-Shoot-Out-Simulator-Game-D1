@@ -8,7 +8,6 @@ func _ready():
 func _on_tofu_amount_changed(new_tofu_amount):
 	print("Tofu amount changed to:", new_tofu_amount)
 	tofuAmount = new_tofu_amount
-	# You can now use new_tofu_amount in your delivery logic.
 
 func _on_delivery_body_entered(body):
 	if tofuAmount >= 1:
