@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/PlayerDriver.gd" type="Script" id=1]
 [ext_resource path="res://asset/character/carrotated.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://asset/sounds/Driving_Shutdown.mp3" type="AudioStream" id=4]
 [ext_resource path="res://asset/character/Lights_ON_002.png" type="Texture" id=5]
 [ext_resource path="res://asset/sounds/Gun_Shot.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 10 )
@@ -58,3 +59,5 @@ position = Vector2( 90, 4.5 )
 rotation = 1.5708
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 5 )
+
+[node name="Gui" parent="." instance=ExtResource( 7 )]
