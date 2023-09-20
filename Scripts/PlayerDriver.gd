@@ -68,16 +68,18 @@ func get_input():
 	steer_angle = turn * steering_angle
 	if Input.is_action_pressed("accelerate"):
 		acceleration = transform.x * engine_power
-		print(tofu)
-		play_driving_sounds()
-		accelerating = true
+		print(hp)
+		if(!braking):
+			play_driving_sounds()
+			accelerating = true
 	elif(!braking):
 		stop_driving_sounds()
 		accelerating = false
 	if Input.is_action_pressed("brake"):
 		acceleration = transform.x * braking_power
-		play_driving_sounds()
-		braking = true
+		if(!accelerating):
+			play_driving_sounds()
+			braking = true
 	elif(!accelerating):
 		stop_driving_sounds()
 		braking = false
