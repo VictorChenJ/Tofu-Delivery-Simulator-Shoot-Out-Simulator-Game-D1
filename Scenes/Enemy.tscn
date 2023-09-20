@@ -1,18 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://asset/icon - Kopi.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://asset/sounds/Gun_Shot.mp3" type="AudioStream" id=3]
-[ext_resource path="res://asset/sounds/Crash.mp3" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.5, 31.5 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 238.411
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 41, 40 )
 
 [node name="Enemy" type="KinematicBody2D" groups=["enemies"]]
 script = ExtResource( 2 )
@@ -32,20 +28,10 @@ scale = Vector2( 3.2, 3.2 )
 stream = ExtResource( 3 )
 volume_db = -10.0
 
-[node name="CollisionSoundPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 4 )
-
 [node name="ApproachArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ApproachArea"]
 shape = SubResource( 2 )
 
-[node name="Crash" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crash"]
-position = Vector2( 1, 0 )
-shape = SubResource( 3 )
-
 [connection signal="body_entered" from="ApproachArea" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="ApproachArea" to="." method="_on_Area2D_body_exited"]
-[connection signal="body_entered" from="Crash" to="." method="_on_Crash_body_entered"]
