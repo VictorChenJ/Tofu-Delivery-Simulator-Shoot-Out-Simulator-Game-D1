@@ -120,6 +120,7 @@ func stop_driving_sounds():
 #hp stuff
 func take_damage ( dmg ):
 	set_hp(hp - dmg)
+	
 
 func set_hp( new_hp ):
 	emit_signal("hp_changed", new_hp)
@@ -133,6 +134,7 @@ func die():
 	
 func _process(delta):
 	emit_signal("playerposition", position)
+
 
 #tofu stuff
 func get_tofu ( add ):
