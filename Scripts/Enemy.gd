@@ -34,15 +34,12 @@ func shoot(direction: float, speed: float):
 
 func _process(delta):
 	timer += attack_speed
-
+	
 	if player:
 		_on_Player_playerposition(player.position)
 		if timer >= time_interval:
 			shoot(plpos, 400)
 			timer = 0
-
-func _ready():
-	connect("playerposition", self, "_on_Player_playerposition")
 
 func _on_Player_playerposition(val):
 	plpos = rad2deg(get_angle_to(val))
@@ -60,6 +57,12 @@ func _on_Area2D_body_exited(body):
 		player = null
 	pass # Replace with function body.
 
+func _on_Crash_body_entered(body):
+	if body.is_in_group("players"):
+		body.take_damage(1)
+		$CollisionSoundPlayer.play()
+	pass # Replace with function body.
+
 # Enemy health
 func take_damage(dmg):
 	set_Ehp(Ehp - dmg)
@@ -73,3 +76,4 @@ func set_Ehp(new_Ehp):
 func die():
 	emit_signal("e_died")
 	queue_free()
+	
