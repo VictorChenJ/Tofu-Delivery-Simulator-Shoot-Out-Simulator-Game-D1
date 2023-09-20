@@ -156,3 +156,7 @@ func shoot(direction: float, speed: float):
 	$GunShotSoundPlayer.play()
 	
 #tofu delivery
+
+
+
+
