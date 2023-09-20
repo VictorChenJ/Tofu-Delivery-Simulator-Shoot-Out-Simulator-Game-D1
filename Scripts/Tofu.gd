@@ -17,5 +17,7 @@ func _ready():
 
 
 func _on_Tofu_body_entered(body):
+	if body.is_in_group("players"):
+		body.get_tofu(1)
 	queue_free()
 	pass # Replace with function body.

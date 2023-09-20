@@ -6,6 +6,10 @@ var hp = 5 setget set_hp
 signal hp_changed
 signal died
 signal playerposition
+signal tofuamount
+
+#tofu
+var tofu = 0 setget set_tofu
 
 #PlayerBullet
 const obj_PlayerBullet = preload("res://Scenes/PlayerBullet.tscn")
@@ -64,7 +68,7 @@ func get_input():
 	steer_angle = turn * steering_angle
 	if Input.is_action_pressed("accelerate"):
 		acceleration = transform.x * engine_power
-		print(hp)
+		print(tofu)
 		play_driving_sounds()
 		accelerating = true
 	elif(!braking):
@@ -128,6 +132,16 @@ func die():
 func _process(delta):
 	emit_signal("playerposition", position)
 
+#tofu stuff
+func get_tofu ( add ):
+	set_tofu(tofu + add)
+
+func set_tofu( new_tofu ):
+	emit_signal("tofu_changed", new_tofu)
+	emit_signal("tofuamount", new_tofu)
+	tofu = new_tofu
+
+
 #PlayerBullet
 func shoot(direction: float, speed: float):
 	var new_PlayerBullet = obj_PlayerBullet.instance()
@@ -136,3 +150,4 @@ func shoot(direction: float, speed: float):
 	get_parent().add_child(new_PlayerBullet)
 	$GunShotSoundPlayer.play()
 	
+#tofu delivery

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://asset/tilemap/tiles_no_indicator.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Tofu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/PlayerDriver.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/NecoEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/delivery.tscn" type="PackedScene" id=6]
 
 [sub_resource type="GDScript" id=3]
 
@@ -106,6 +107,9 @@ position = Vector2( 227, 184 )
 position = Vector2( 132, 171 )
 
 [node name="NecoEnemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( -401, -32 )
+position = Vector2( -675, -207 )
+
+[node name="delivery" parent="." instance=ExtResource( 6 )]
+position = Vector2( -84, 289 )
 
 [connection signal="playerposition" from="Player" to="Enemy" method="_on_Player_playerposition"]
