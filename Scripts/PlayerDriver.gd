@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 #Hp related
-var hp = 10 setget set_hp
+var hp = 1000 setget set_hp
 
 signal hp_changed
 signal died
