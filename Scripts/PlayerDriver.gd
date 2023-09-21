@@ -71,7 +71,10 @@ func get_input():
 		turn -= 1
 	steer_angle = turn * steering_angle
 	if Input.is_action_pressed("accelerate"):
-		acceleration = transform.x * engine_power
+		if(!drifting):
+			acceleration = transform.x * engine_power
+		else:
+			acceleration = transform.x * engine_power * 0.35
 		print(tofu)
 		if(!braking):
 			play_driving_sounds()
