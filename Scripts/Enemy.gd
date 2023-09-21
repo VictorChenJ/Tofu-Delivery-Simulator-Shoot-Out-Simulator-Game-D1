@@ -3,6 +3,7 @@ extends KinematicBody2D
 # Enemy health
 var Ehp = 1 setget set_Ehp
 signal Ehp_changed
+signal e_died
 
 # Enemy movement
 var speed = 200
@@ -25,7 +26,7 @@ func _physics_process(delta):
 	motion = Vector2.ZERO
 	if player:
 		motion = position.direction_to(player.position) * speed
-	motion = move_and_slide(motion)
+		motion = move_and_slide(motion)
 
 # Bullet
 func shoot(direction: float, speed: float):

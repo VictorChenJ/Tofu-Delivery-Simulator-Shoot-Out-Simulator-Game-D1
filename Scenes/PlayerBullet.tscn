@@ -4,7 +4,7 @@
 [ext_resource path="res://asset/misc/penis bullet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.75, 17.75 )
+extents = Vector2( 16.9583, 8 )
 
 [node name="PlayerBullet" type="Area2D"]
 scale = Vector2( 0.6, 0.5 )
@@ -14,5 +14,5 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2( -0.5, -1.5 )
+position = Vector2( -0.291667, -2 )
 shape = SubResource( 1 )
