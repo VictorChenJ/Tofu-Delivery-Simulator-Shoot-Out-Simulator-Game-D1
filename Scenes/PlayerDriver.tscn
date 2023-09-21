@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/PlayerDriver.gd" type="Script" id=1]
 [ext_resource path="res://asset/character/carrotated.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://asset/character/Lights_ON_002.png" type="Texture" id=5]
 [ext_resource path="res://asset/sounds/Gun_Shot.mp3" type="AudioStream" id=6]
 [ext_resource path="res://asset/sounds/Crash.mp3" type="AudioStream" id=7]
+[ext_resource path="res://asset/sounds/Drift.mp3" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 10 )
@@ -97,5 +98,8 @@ custom_colors/font_color_shadow = Color( 0.792157, 0, 0, 1 )
 max_value = 10.0
 value = 10.0
 percent_visible = false
+
+[node name="DriftSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
 
 [connection signal="body_entered" from="Crash" to="." method="_on_Crash_body_entered"]
