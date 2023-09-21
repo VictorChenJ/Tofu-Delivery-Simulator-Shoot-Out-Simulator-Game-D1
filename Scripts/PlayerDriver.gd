@@ -45,6 +45,7 @@ var braking = false
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
 	get_input()
+	update_health()
 	apply_friction()
 	calculate_steering(delta)
 	velocity += acceleration * delta
@@ -140,6 +141,14 @@ func die():
 func _process(delta):
 	emit_signal("playerposition", position)
 
+func update_health():
+	var healthbar = $HealthBar
+	healthbar.value = hp
+	
+	if hp >= 5:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
 
 #tofu stuff
 func get_tofu ( add ):
