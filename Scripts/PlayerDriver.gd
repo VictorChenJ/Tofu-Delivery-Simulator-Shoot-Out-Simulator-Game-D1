@@ -43,7 +43,7 @@ var accelerating = false
 var braking = false
 var drifting = false
 
-onready var death_sound = preload("res://Scenes/DeathSound.tscn")
+onready var death_effect = preload("res://Scenes/DeathEffect.tscn")
 
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
@@ -149,10 +149,10 @@ func set_hp( new_hp ):
 		
 func die():
 	emit_signal("died")
-	var deathSoundInst = death_sound.instance()
+	var deathEffectInst = death_effect.instance()
 	var world = get_tree().current_scene
-	world.add_child(deathSoundInst)
-	deathSoundInst.global_position = global_position
+	world.add_child(deathEffectInst)
+	deathEffectInst.global_position = global_position
 	queue_free()
 	
 func _process(delta):
