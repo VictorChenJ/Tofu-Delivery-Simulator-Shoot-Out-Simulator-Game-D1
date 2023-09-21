@@ -18,7 +18,7 @@ var timer = 0
 var time_interval = 1.0
 
 
-var wheel_base = 100  # Distance from front to rear wheel
+var wheel_base = 200  # Distance from front to rear wheel
 var steering_angle = 5  # Amount that front wheel turns, in degrees
 
 var velocity = Vector2.ZERO
