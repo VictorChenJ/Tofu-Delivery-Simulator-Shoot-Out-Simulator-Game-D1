@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Deliver.mp3-9b0957b6ea3865aa8b4f690d24ae3b2a.mp3str"
+
+[deps]
+
+source_file="res://asset/sounds/Deliver.mp3"
+dest_files=[ "res://.import/Deliver.mp3-9b0957b6ea3865aa8b4f690d24ae3b2a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

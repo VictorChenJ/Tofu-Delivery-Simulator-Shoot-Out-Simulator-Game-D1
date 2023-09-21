@@ -2,6 +2,8 @@ extends Area2D
 
 var tofuAmount = 0
 
+onready var delivery_effect = preload("res://Scenes/DeliveryEffect.tscn")
+
 func _ready():
 	connect("tofuamount", self, "_on_tofu_amount_changed")
 func _on_Player_tofuamount(new_tofu_amount):
@@ -13,5 +15,9 @@ func _on_delivery_body_entered(body):
 		if body.is_in_group("players"):
 			body.get_tofu((-1))
 			emit_signal("tofu_delivered")
-		queue_free()
+			var deliveryEffectInst = delivery_effect.instance()
+			var world = get_tree().current_scene
+			world.add_child(deliveryEffectInst)
+			deliveryEffectInst.global_position = global_position
+			queue_free()
 	pass # Replace with function body.

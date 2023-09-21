@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/CollectSound.gd" type="Script" id=1]
+[ext_resource path="res://asset/sounds/Collect.mp3" type="AudioStream" id=2]
+
+[node name="CollectionEffect" type="Node2D"]
+
+[node name="CollectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+script = ExtResource( 1 )
