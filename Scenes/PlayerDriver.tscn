@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/PlayerDriver.gd" type="Script" id=1]
 [ext_resource path="res://asset/character/carrotated.png" type="Texture" id=2]
@@ -17,6 +17,9 @@ loop = true
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 119.999, 260.001 )
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 1
 
 [sub_resource type="Theme" id=4]
 
@@ -84,11 +87,14 @@ shape = SubResource( 3 )
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 modulate = Color( 0.219608, 1, 0, 1 )
+material = SubResource( 5 )
 margin_left = -39.0
 margin_top = 15.0
 margin_right = 40.0
 margin_bottom = 32.0
 theme = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.792157, 0, 0, 1 )
 max_value = 5.0
 value = 5.0
 percent_visible = false
