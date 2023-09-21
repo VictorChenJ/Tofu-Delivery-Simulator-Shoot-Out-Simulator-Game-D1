@@ -18,7 +18,7 @@ var timer = 0
 var time_interval = 1.0
 
 
-var wheel_base = 100  # Distance from front to rear wheel
+var wheel_base = 200  # Distance from front to rear wheel
 var steering_angle = 5  # Amount that front wheel turns, in degrees
 
 var velocity = Vector2.ZERO
@@ -41,12 +41,14 @@ var drivingStartupSound = true # Determines wether the car plays the driving sta
 
 var accelerating = false
 var braking = false
+var drifting = false
 
 onready var death_sound = preload("res://Scenes/DeathSound.tscn")
 
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
 	get_input()
+	update_health()
 	apply_friction()
 	calculate_steering(delta)
 	velocity += acceleration * delta
@@ -88,21 +90,24 @@ func get_input():
 	if Input.is_action_just_pressed("left_click"):
 		mouse_position = rad2deg(get_angle_to(get_global_mouse_position())+rotation)
 		shoot(mouse_position,600)
+	if Input.is_action_pressed("handbrake"):
+		drifting = true
+	else:
+		drifting = false
 
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base / 2.0
 	var front_wheel = position + transform.x * wheel_base / 2.0
-	rear_wheel += velocity * delta
-	front_wheel += velocity.rotated(steer_angle) * delta
+	if (drifting == true):
+		rear_wheel += velocity.rotated(steer_angle) * delta
+		front_wheel -= velocity.rotated(steer_angle) * delta
+	else:
+		rear_wheel -= velocity * delta
+		front_wheel -= velocity.rotated(steer_angle) * delta
 	var new_heading = (front_wheel - rear_wheel).normalized()
 	var traction = traction_slow
 	if velocity.length() > slip_speed:
 		traction = traction_fast
-	var d = new_heading.dot(velocity.normalized())
-	if d > 0:
-		velocity = velocity.linear_interpolate(new_heading * velocity.length(), traction)
-	if d < 0:
-		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
 
 func _on_Crash_body_entered(body):
@@ -145,6 +150,15 @@ func die():
 	
 func _process(delta):
 	emit_signal("playerposition", position)
+
+func update_health():
+	var healthbar = $HealthBar
+	healthbar.value = hp
+	
+	if hp >= 5:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
 
 #tofu stuff
 func get_tofu ( add ):

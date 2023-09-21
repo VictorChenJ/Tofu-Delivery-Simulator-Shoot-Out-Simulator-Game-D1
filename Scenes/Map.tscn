@@ -116,4 +116,3 @@ position = Vector2( -84, 289 )
 [node name="CanvasLayer" parent="." instance=ExtResource( 7 )]
 
 [connection signal="playerposition" from="Player" to="Enemy" method="_on_Player_playerposition"]
-[connection signal="tofuamount" from="Player" to="delivery" method="_on_Player_tofuamount"]
