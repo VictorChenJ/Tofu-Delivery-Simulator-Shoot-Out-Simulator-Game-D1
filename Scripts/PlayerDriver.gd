@@ -15,8 +15,8 @@ var tofu = 0 setget set_tofu
 const obj_PlayerBullet = preload("res://Scenes/PlayerBullet.tscn")
 var mouse_position = null
 var timer = 0
-var time_interval = 1.0
-
+var time_interval = 5.0
+var timer_speed = 0.256
 
 var wheel_base = 200  # Distance from front to rear wheel
 var steering_angle = 5  # Amount that front wheel turns, in degrees
@@ -96,16 +96,23 @@ func get_input():
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base / 2.0
 	var front_wheel = position + transform.x * wheel_base / 2.0
-	if (drifting == true):
-		rear_wheel += velocity.rotated(steer_angle) * delta
-		front_wheel -= velocity.rotated(steer_angle) * delta
-	else:
-		rear_wheel -= velocity * delta
-		front_wheel -= velocity.rotated(steer_angle) * delta
-	var new_heading = (front_wheel - rear_wheel).normalized()
+	var new_heading
 	var traction = traction_slow
 	if velocity.length() > slip_speed:
 		traction = traction_fast
+	if (drifting == true):
+		rear_wheel += velocity.rotated(steer_angle) * delta
+		front_wheel -= velocity.rotated(steer_angle) * delta
+		new_heading = (front_wheel - rear_wheel).normalized()
+	else:
+		rear_wheel -= velocity * delta
+		front_wheel -= velocity.rotated(steer_angle) * delta
+		new_heading = (front_wheel - rear_wheel).normalized()
+		var d = new_heading.dot(velocity.normalized())
+		if d > 0:
+			velocity = velocity.linear_interpolate(new_heading * velocity.length(), traction)
+		if d < 0:
+			velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
 
 func _on_Crash_body_entered(body):
