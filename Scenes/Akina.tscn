@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://asset/tilemap/new_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/PlayerDriver.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://asset/tilemap/tiles_no_indicator.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/delivery.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/WinCondition.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/EnemiyPolice.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ConcavePolygonShape2D" id=1]
 segments = PoolVector2Array( 0, 0, 64, 0, 64, 0, 64, 64, 64, 64, 0, 64, 0, 64, 0, 0 )
@@ -325,5 +326,11 @@ position = Vector2( 38798, 2360 )
 [node name="Tofu3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 35484, -555 )
 
-[connection signal="tofuamount" from="Player" to="WinCondition/delivery" method="_on_Player_tofuamount"]
+[node name="EnemyPolice" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4587, 475 )
+
+[node name="EnemyPolice2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 23930, -1624 )
+
 [connection signal="tofuamount" from="Player" to="WinCondition" method="_on_Player_tofuamount"]
+[connection signal="tofuamount" from="Player" to="WinCondition/delivery" method="_on_Player_tofuamount"]
