@@ -26,8 +26,8 @@ func _physics_process(delta):
 	motion = Vector2.ZERO
 	if player:
 		motion = position.direction_to(player.position) * speed
-	rotate(deg2rad(plpos))
-	motion = move_and_slide(motion)
+		rotate(deg2rad(plpos))
+		motion = move_and_slide(motion)
 
 # Bullet
 func shoot(direction: float, speed: float):
