@@ -308,5 +308,3 @@ position = Vector2( -216, 218 )
 
 [node name="Tofu" parent="." instance=ExtResource( 3 )]
 position = Vector2( -51, 144 )
-
-[connection signal="tofuamount" from="Player" to="delivery" method="_on_Player_tofuamount"]
