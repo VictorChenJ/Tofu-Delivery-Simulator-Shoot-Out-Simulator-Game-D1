@@ -16,6 +16,9 @@ var timer = 0
 var time_interval = 1.0
 var attack_speed = 0.025
 
+#death
+onready var death_effect = preload("res://Scenes/DeathEffect.tscn")
+
 # Følger efter player
 func _physics_process(delta):
 	motion = Vector2.ZERO
@@ -69,5 +72,9 @@ func set_Ehp(new_Ehp):
 
 func die():
 	emit_signal("e_died")
+	var deathEffectInst = death_effect.instance()
+	var world = get_tree().current_scene
+	world.add_child(deathEffectInst)
+	deathEffectInst.global_position = global_position
 	queue_free()
 	
