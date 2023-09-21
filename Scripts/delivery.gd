@@ -7,7 +7,7 @@ func _ready():
 func _on_Player_tofuamount(new_tofu_amount):
 	print("Tofu amount changed to:", new_tofu_amount)
 	tofuAmount = new_tofu_amount
-	pass # Replace with function body.
+
 func _on_delivery_body_entered(body):
 	if tofuAmount >= 1:
 		if body.is_in_group("players"):
