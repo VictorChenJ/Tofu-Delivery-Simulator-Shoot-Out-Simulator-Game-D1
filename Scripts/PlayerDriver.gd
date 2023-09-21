@@ -1,7 +1,11 @@
 extends KinematicBody2D
 
 #Hp related
+<<<<<<< Updated upstream
 var hp = 1000 setget set_hp
+=======
+var hp = 10000 setget set_hp
+>>>>>>> Stashed changes
 
 signal hp_changed
 signal died
@@ -95,8 +99,11 @@ func get_input():
 		shoot(mouse_position,600)
 	if Input.is_action_pressed("handbrake"):
 		drifting = true
+		if(!$DriftSoundPlayer.playing):
+			$DriftSoundPlayer.play()
 	else:
 		drifting = false
+		$DriftSoundPlayer.stop()
 
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base / 2.0
