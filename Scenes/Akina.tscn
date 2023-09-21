@@ -304,16 +304,16 @@ position = Vector2( 39441, 6145 )
 position = Vector2( 39306, 5891 )
 
 [node name="delivery" parent="." instance=ExtResource( 7 )]
-position = Vector2( 4715, 593 )
+position = Vector2( 4689, 595 )
 
 [node name="Tofu" parent="." instance=ExtResource( 3 )]
 position = Vector2( 715, 284 )
 
+[node name="delivery3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 40528, 6830 )
+
 [node name="delivery2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 29953, -1564 )
-
-[node name="delivery" parent="delivery2" instance=ExtResource( 7 )]
-position = Vector2( 10575, 8394 )
 
 [node name="Tofu2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 38798, 2360 )
