@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # Enemy health
-var Ehp = 1 setget set_Ehp
+var Ehp = 3 setget set_Ehp
 signal Ehp_changed
 
 # Enemy movement
