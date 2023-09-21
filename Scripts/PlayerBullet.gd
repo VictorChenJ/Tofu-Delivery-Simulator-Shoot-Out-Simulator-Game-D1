@@ -4,6 +4,7 @@ extends Area2D
 var velocity: Vector2 = Vector2()
 var duration = 20
  
+onready var richochet_effect = preload("res://Scenes/BulletRichochetEffect.tscn")
  
 func _ready() -> void:
 	connect("body_entered", self, "_on_body_entered")
@@ -24,4 +25,8 @@ func _on_body_entered(body):
 	if body.is_in_group("enemies"):
 		# You need to make sure your player has a "take_damage" function
 		body.take_damage(1)
+		var richochetEffectInst = richochet_effect.instance()
+		var world = get_tree().current_scene
+		world.add_child(richochetEffectInst)
+		richochetEffectInst.global_position = global_position
 		queue_free()
