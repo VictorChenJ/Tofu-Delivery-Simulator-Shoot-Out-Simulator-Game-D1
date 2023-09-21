@@ -44,6 +44,9 @@ var accelerating = false
 var braking = false
 var drifting = false
 
+var shootIndex = 0
+var ammo = 5
+
 onready var death_effect = preload("res://Scenes/DeathEffect.tscn")
 
 func _physics_process(delta):
@@ -94,7 +97,7 @@ func get_input():
 	if Input.is_action_just_pressed("left_click"):
 		mouse_position = rad2deg(get_angle_to(get_global_mouse_position())+rotation)
 		shoot(mouse_position,600)
-	if Input.is_action_pressed("handbrake"):
+	if (Input.is_action_pressed("handbrake") && velocity.x > 3):
 		drifting = true
 		if(!$DriftSoundPlayer.playing):
 			$DriftSoundPlayer.play()
@@ -186,12 +189,15 @@ func set_tofu( new_tofu ):
 
 #PlayerBullet
 func shoot(direction: float, speed: float):
-	var new_PlayerBullet = obj_PlayerBullet.instance()
-	new_PlayerBullet.velocity = Vector2(speed, 0).rotated(deg2rad(direction))
-	new_PlayerBullet.position = position
-	get_parent().add_child(new_PlayerBullet)
-	new_PlayerBullet.rotate(deg2rad(direction))
-	$GunShotSoundPlayer.play()
-	
+	if (shootIndex <= ammo && !$ReloadSoundPlayer.playing):
+		var new_PlayerBullet = obj_PlayerBullet.instance()
+		shootIndex += 1
+		new_PlayerBullet.velocity = Vector2(speed, 0).rotated(deg2rad(direction))
+		new_PlayerBullet.position = position
+		get_parent().add_child(new_PlayerBullet)
+		new_PlayerBullet.rotate(deg2rad(direction))
+		$GunShotSoundPlayer.play()
+	elif (!$ReloadSoundPlayer.playing):
+		$ReloadSoundPlayer.play()
+		shootIndex = 0
 #tofu delivery
-
