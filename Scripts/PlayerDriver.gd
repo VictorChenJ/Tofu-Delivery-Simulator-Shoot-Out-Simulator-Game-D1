@@ -160,6 +160,7 @@ func die():
 	var world = get_tree().current_scene
 	world.add_child(deathEffectInst)
 	deathEffectInst.global_position = global_position
+	get_tree().change_scene("res://Scenes/DeathScreen.tscn")
 	queue_free()
 	
 func _process(delta):
