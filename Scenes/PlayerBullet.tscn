@@ -4,7 +4,7 @@
 [ext_resource path="res://asset/misc/penis bullet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.9583, 8 )
+extents = Vector2( 16.75, 17.75 )
 
 [node name="PlayerBullet" type="Area2D"]
 scale = Vector2( 0.6, 0.5 )
