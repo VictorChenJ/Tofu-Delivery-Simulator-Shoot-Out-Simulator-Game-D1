@@ -1,11 +1,8 @@
 extends KinematicBody2D
 
 #Hp related
-<<<<<<< Updated upstream
-var hp = 1000 setget set_hp
-=======
-var hp = 10000 setget set_hp
->>>>>>> Stashed changes
+
+var hp = 5 setget set_hp
 
 signal hp_changed
 signal died
