@@ -103,6 +103,12 @@ func calculate_steering(delta):
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
 
+func _on_Crash_body_entered(body):
+	if (!body.is_in_group("players")):
+		take_damage(1)
+		$CollisionSoundPlayer.play()
+		pass # Replace with function body.
+
 func play_driving_sounds():
 	if(!$DrivingStartupPlayer.playing && drivingStartupSound):
 		$DrivingStartupPlayer.play()
@@ -120,7 +126,6 @@ func stop_driving_sounds():
 #hp stuff
 func take_damage ( dmg ):
 	set_hp(hp - dmg)
-	
 
 func set_hp( new_hp ):
 	emit_signal("hp_changed", new_hp)
@@ -145,7 +150,6 @@ func set_tofu( new_tofu ):
 	emit_signal("tofuamount", new_tofu)
 	tofu = new_tofu
 
-
 #PlayerBullet
 func shoot(direction: float, speed: float):
 	var new_PlayerBullet = obj_PlayerBullet.instance()
@@ -156,7 +160,3 @@ func shoot(direction: float, speed: float):
 	$GunShotSoundPlayer.play()
 	
 #tofu delivery
-
-
-
-
