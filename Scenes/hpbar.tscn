@@ -42,7 +42,6 @@ margin_top = -43.0
 margin_right = 127.0
 margin_bottom = 39.0
 theme = SubResource( 2 )
-text = "5"
 valign = 1
 script = ExtResource( 4 )
 __meta__ = {

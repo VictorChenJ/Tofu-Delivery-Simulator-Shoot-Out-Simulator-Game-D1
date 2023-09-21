@@ -3,6 +3,9 @@ extends KinematicBody2D
 #Hp related
 
 var hp = 5 setget set_hp
+=======
+var hp = 10 setget set_hp
+>>>>>>> Stashed changes
 
 signal hp_changed
 signal died
@@ -169,7 +172,7 @@ func update_health():
 	var healthbar = $HealthBar
 	healthbar.value = hp
 	
-	if hp >= 5:
+	if hp >= 10:
 		healthbar.visible = false
 	else:
 		healthbar.visible = true

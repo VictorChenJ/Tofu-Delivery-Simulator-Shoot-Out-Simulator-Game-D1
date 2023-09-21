@@ -99,6 +99,7 @@ max_value = 10.0
 value = 10.0
 percent_visible = false
 
+<<<<<<< Updated upstream
 [node name="Timer" type="Timer" parent="."]
 
 [node name="DriftSoundPlayer" type="AudioStreamPlayer2D" parent="."]
