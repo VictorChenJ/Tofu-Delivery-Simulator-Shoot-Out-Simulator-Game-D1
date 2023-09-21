@@ -304,9 +304,21 @@ position = Vector2( 39441, 6145 )
 position = Vector2( 39306, 5891 )
 
 [node name="delivery" parent="." instance=ExtResource( 7 )]
-position = Vector2( -216, 218 )
+position = Vector2( 4715, 593 )
 
 [node name="Tofu" parent="." instance=ExtResource( 3 )]
-position = Vector2( -51, 144 )
+position = Vector2( 715, 284 )
+
+[node name="delivery2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 29953, -1564 )
+
+[node name="delivery" parent="delivery2" instance=ExtResource( 7 )]
+position = Vector2( 10575, 8394 )
+
+[node name="Tofu2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 38798, 2360 )
+
+[node name="Tofu3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 35484, -555 )
 
 [connection signal="tofuamount" from="Player" to="delivery" method="_on_Player_tofuamount"]
