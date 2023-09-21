@@ -29,4 +29,5 @@ func _on_body_entered(body):
 		var world = get_tree().current_scene
 		world.add_child(richochetEffectInst)
 		richochetEffectInst.global_position = global_position
+		richochetEffectInst.rotate(rotation)
 		queue_free()
