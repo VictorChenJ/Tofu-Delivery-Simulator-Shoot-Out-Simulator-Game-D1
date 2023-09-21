@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/neco-arc-sound-effect.mp3-d30bba54536984e5bfdc5df6f5eca1eb.mp3str"
+
+[deps]
+
+source_file="res://asset/sounds/neco-arc-sound-effect.mp3"
+dest_files=[ "res://.import/neco-arc-sound-effect.mp3-d30bba54536984e5bfdc5df6f5eca1eb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
