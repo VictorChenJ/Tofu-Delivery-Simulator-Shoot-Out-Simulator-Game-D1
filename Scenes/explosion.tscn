@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://asset/misc/explosion.png" type="Texture" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.290323, 0.445161, 0.63871, 0.787097, 0.916129, 0.974194 )
+colors = PoolColorArray( 1, 0.942773, 0, 1, 0.897925, 0.633902, 0.0736579, 1, 0.893652, 0.0523624, 0.0523624, 1, 0.582031, 0.0727539, 0.0727539, 1, 0, 0, 0, 1, 0.284509, 0.26895, 0.26895, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 128.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, -70, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale = 1.5
+scale_random = 1.0
+color_ramp = SubResource( 4 )
+anim_speed = 1.0
+
+[node name="Particles2D" type="Particles2D"]
+material = SubResource( 2 )
+position = Vector2( 484, 451 )
+scale = Vector2( 30, 30 )
+amount = 25
+lifetime = 1.4
+explosiveness = 0.5
+randomness = 1.0
+process_material = SubResource( 1 )
+texture = ExtResource( 1 )
