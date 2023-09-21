@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://asset/misc/hit effekt.png" type="Texture" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.00645161, 0.425806, 0.503226, 0.6, 0.709677, 0.793548, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0.968627, 0.670588, 1, 1, 0.970459, 0, 1, 0.814819, 0.773, 0.0254631, 1, 0.674406, 0.596459, 0.0282895, 1, 0.443726, 0.306427, 0.0329328, 1, 0.178101, 0.124853, 0.018784, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_disable_z = true
+direction = Vector3( 130, 0, 0 )
+gravity = Vector3( 0, 30, 0 )
+initial_velocity = 70.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle_random = 1.0
+scale = 2.0
+scale_random = 1.0
+color_ramp = SubResource( 3 )
+anim_speed = 1.0
+
+[node name="HitEffect" type="Particles2D"]
+material = SubResource( 1 )
+emitting = false
+amount = 5
+lifetime = 0.7
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.7
+randomness = 0.41
+process_material = SubResource( 4 )
+texture = ExtResource( 1 )

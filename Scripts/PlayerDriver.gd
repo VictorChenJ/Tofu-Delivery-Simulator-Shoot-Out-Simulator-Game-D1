@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 #Hp related
+
 var hp = 10 setget set_hp
 
 signal hp_changed
@@ -95,8 +96,11 @@ func get_input():
 		shoot(mouse_position,600)
 	if Input.is_action_pressed("handbrake"):
 		drifting = true
+		if(!$DriftSoundPlayer.playing):
+			$DriftSoundPlayer.play()
 	else:
 		drifting = false
+		$DriftSoundPlayer.stop()
 
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base / 2.0
@@ -165,7 +169,7 @@ func update_health():
 	var healthbar = $HealthBar
 	healthbar.value = hp
 	
-	if hp >= 5:
+	if hp >= 10:
 		healthbar.visible = false
 	else:
 		healthbar.visible = true

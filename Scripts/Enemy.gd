@@ -15,6 +15,7 @@ var plpos = 0
 var timer = 0
 var time_interval = 1.0
 var attack_speed = 0.025
+var n = 0
 
 #death
 onready var death_effect = preload("res://Scenes/DeathEffect.tscn")
@@ -37,7 +38,6 @@ func shoot(direction: float, speed: float):
 
 func _process(delta):
 	timer += attack_speed
-	
 	if player:
 		_on_Player_playerposition(player.position)
 		if timer >= time_interval:
