@@ -7,11 +7,13 @@ onready var delivery_effect = preload("res://Scenes/DeliveryEffect.tscn")
 
 func _ready():
 	connect("tofuamount", self, "_on_tofu_amount_changed")
+	connect("body_entered", self, "_on_body_entered")
 func _on_Player_tofuamount(new_tofu_amount):
 	print("Tofu amount changed to:", new_tofu_amount)
 	tofuAmount = new_tofu_amount
+	
 
-func _on_delivery_body_entered(body):
+func _on_body_entered(body):
 	if tofuAmount >= 1:
 		if body.is_in_group("players"):
 			body.get_tofu((-1))
