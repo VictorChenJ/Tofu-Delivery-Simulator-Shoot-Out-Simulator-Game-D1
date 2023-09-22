@@ -14,8 +14,8 @@ var player = null
 const obj_bullet = preload("res://Scenes/bullet.tscn")
 var plpos = 0
 var timer = 0
-var time_interval = 1.0
-var attack_speed = 0.025
+var time_interval = 1
+var attack_speed = 0.015
 var n = 0
 
 #death
