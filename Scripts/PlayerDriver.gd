@@ -70,6 +70,7 @@ func _physics_process(delta):
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
+	print(velocity)
 
 func apply_friction():
 	if velocity.length() < 5:
@@ -98,7 +99,6 @@ func get_input():
 			acceleration = transform.x * engine_power
 		else:
 			acceleration = transform.x * engine_power * 0.35
-		#print(tofu)
 		if(!braking):
 			play_driving_sounds()
 			accelerating = true
@@ -151,8 +151,9 @@ func calculate_steering(delta):
 
 func _on_Crash_body_entered(body):
 	if (!body.is_in_group("players")):
-		take_damage(1)
-		$CollisionSoundPlayer.play()
+		if (velocity.x > 150 || velocity.x < -150 || velocity.y > 150 || velocity.y < -150):
+			take_damage(1)
+			$CollisionSoundPlayer.play()
 	if body.is_in_group("enemies"):
 		body.take_damage(1)
 		print("Collided with: " + str(body))
