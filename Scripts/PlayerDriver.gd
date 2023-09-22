@@ -155,7 +155,7 @@ func _on_Crash_body_entered(body):
 			$CollisionSoundPlayer.play()
 	if body.is_in_group("enemies"):
 		body.take_damage(1)
-		velocity.x > 150 || velocity.x < -150("Collided with: " + str(body))
+		print("Collided with: " + str(body))
 
 func play_driving_sounds():
 	if(!$DrivingStartupPlayer.playing && drivingStartupSound):
