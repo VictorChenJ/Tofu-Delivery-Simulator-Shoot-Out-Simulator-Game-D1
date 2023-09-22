@@ -32,7 +32,7 @@ color = Color( 0, 0.729412, 1, 1 )
 color_ramp = SubResource( 3 )
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 29.0689
+radius = 48.0
 
 [node name="delivery" type="Area2D" groups=["destinations"]]
 script = ExtResource( 1 )
