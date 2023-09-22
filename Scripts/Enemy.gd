@@ -47,19 +47,16 @@ func _process(delta):
 
 func _on_Player_playerposition(val):
 	plpos = rad2deg(get_angle_to(val))
-	pass # Replace with function body.
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("players"):
 		print("enter")
 		player = body
-	pass # Replace with function body.
 
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("players") and body == player:
 		print("exit")
 		player = null
-	pass # Replace with function body.
 
 # Enemy health
 func take_damage(dmg):
