@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Initial D Burning Up For You 8 bit.mp3-d364d608641c5f126da3a856a20fb817.mp3str"
+
+[deps]
+
+source_file="res://Eurobeat/Initial D Burning Up For You 8 bit.mp3"
+dest_files=[ "res://.import/Initial D Burning Up For You 8 bit.mp3-d364d608641c5f126da3a856a20fb817.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

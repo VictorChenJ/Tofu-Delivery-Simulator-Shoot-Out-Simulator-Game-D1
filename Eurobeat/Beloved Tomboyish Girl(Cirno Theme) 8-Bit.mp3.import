@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Beloved Tomboyish Girl(Cirno Theme) 8-Bit.mp3-ac1bcd4d77f15e163657755b3215b9b9.mp3str"
+
+[deps]
+
+source_file="res://Eurobeat/Beloved Tomboyish Girl(Cirno Theme) 8-Bit.mp3"
+dest_files=[ "res://.import/Beloved Tomboyish Girl(Cirno Theme) 8-Bit.mp3-ac1bcd4d77f15e163657755b3215b9b9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

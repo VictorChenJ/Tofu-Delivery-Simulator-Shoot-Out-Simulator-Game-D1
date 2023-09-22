@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Manuel Gas Gas Gas 8Bit.mp3-ff5dd94402bab8ad3659b0ba3b2ee552.mp3str"
+
+[deps]
+
+source_file="res://Eurobeat/Manuel Gas Gas Gas 8Bit.mp3"
+dest_files=[ "res://.import/Manuel Gas Gas Gas 8Bit.mp3-ff5dd94402bab8ad3659b0ba3b2ee552.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
