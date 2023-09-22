@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://asset/tilemap/tree.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/delivery.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/WinCondition.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/EnemiyPolice.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/timer.tscn" type="PackedScene" id=10]
 
@@ -290,20 +289,25 @@ position = Vector2( 39441, 6145 )
 [node name="Enemy83" parent="." instance=ExtResource( 5 )]
 position = Vector2( 39306, 5891 )
 
-[node name="WinCondition" parent="." instance=ExtResource( 8 )]
-position = Vector2( -8, 192 )
+[node name="delivery" parent="." instance=ExtResource( 7 )]
+position = Vector2( 873, 94 )
 
-[node name="delivery" parent="WinCondition" instance=ExtResource( 7 )]
-position = Vector2( 1101, 27 )
+[node name="delivery2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 652, 78 )
 
+<<<<<<< Updated upstream
 [node name="delivery2" parent="WinCondition" instance=ExtResource( 7 )]
 position = Vector2( -88, 75 )
 
 [node name="delivery3" parent="WinCondition" instance=ExtResource( 7 )]
 position = Vector2( -295, 2 )
+=======
+[node name="delivery3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 990, 290 )
+>>>>>>> Stashed changes
 
 [node name="Tofu" parent="." instance=ExtResource( 3 )]
-position = Vector2( 715, 284 )
+position = Vector2( 734, 229 )
 
 [node name="Tofu2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 734, 229 )
@@ -322,6 +326,7 @@ position = Vector2( 30150, -1661 )
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 10 )]
 
+<<<<<<< Updated upstream
 [node name="NecoEnemy2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3704, -986 )
 
@@ -330,3 +335,9 @@ position = Vector2( 2070, 215 )
 
 [connection signal="tofuamount" from="Player" to="WinCondition" method="_on_Player_tofuamount"]
 [connection signal="tofuamount" from="Player" to="WinCondition/delivery" method="_on_Player_tofuamount"]
+=======
+[connection signal="tofu_delivered" from="delivery" to="Tofu" method="_on_delivery_tofu_delivered"]
+[connection signal="tofu_delivered" from="delivery2" to="Tofu2" method="_on_delivery2_tofu_delivered"]
+[connection signal="tofu_delivered" from="delivery3" to="Tofu3" method="_on_delivery3_tofu_delivered"]
+[connection signal="body_entered" from="Tofu" to="delivery" method="_on_Tofu_body_entered"]
+>>>>>>> Stashed changes
