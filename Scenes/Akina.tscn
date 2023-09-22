@@ -308,26 +308,26 @@ position = Vector2( 39306, 5891 )
 [node name="WinCondition" parent="." instance=ExtResource( 8 )]
 position = Vector2( -8, 192 )
 
+[node name="delivery2" parent="WinCondition" instance=ExtResource( 7 )]
+position = Vector2( 1357, 20 )
+
 [node name="delivery3" parent="WinCondition" instance=ExtResource( 7 )]
-position = Vector2( 40536, 6638 )
+position = Vector2( 862, 24 )
 
 [node name="delivery" parent="WinCondition" instance=ExtResource( 7 )]
-position = Vector2( 4697, 403 )
-
-[node name="delivery2" parent="WinCondition" instance=ExtResource( 7 )]
-position = Vector2( 29961, -1756 )
+position = Vector2( 1101, 27 )
 
 [node name="Tofu" parent="." instance=ExtResource( 3 )]
 position = Vector2( 715, 284 )
 
 [node name="Tofu2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 38798, 2360 )
+position = Vector2( 734, 229 )
 
 [node name="Tofu3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 35484, -555 )
+position = Vector2( 679, 216 )
 
 [node name="EnemyPolice" parent="." instance=ExtResource( 9 )]
-position = Vector2( 4587, 475 )
+position = Vector2( 4981, 236 )
 
 [node name="EnemyPolice2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 23930, -1624 )
