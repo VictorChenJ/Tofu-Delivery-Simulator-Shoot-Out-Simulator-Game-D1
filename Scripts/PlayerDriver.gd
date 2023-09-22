@@ -1,5 +1,14 @@
 extends KinematicBody2D
 
+#Tile speed
+var tileSpeedModifiers = {
+	0: 1.0,  # Tile ID 1 has a speed modifier of 1.0 (normal speed)
+	1: 1.0,  # Tile ID 2 has a speed modifier of 1.5 (speed boost)
+	2: 1.0,   # Tile ID 3 has a speed modifier of 0.5 (slow down)
+	3: 1.0,   # Tile ID 3 has a speed modifier of 0.5 (slow down)
+	4: 0.9,   # Tile ID 3 has a speed modifier of 0.5 (slow down)
+}
+
 #Hp related
 
 var hp = 10 setget set_hp
@@ -71,6 +80,12 @@ func apply_friction():
 	if velocity.length() < 100:
 		friction_force *= 3
 	acceleration += drag_force + friction_force
+	
+	var tile_position = get_parent().get_node("MainMap").world_to_map(position)
+	var tile_id = get_parent().get_node("MainMap").get_cellv(tile_position)
+	
+	if tileSpeedModifiers.has(tile_id):
+		velocity *= tileSpeedModifiers[tile_id]
 
 func get_input():
 	var turn = 0
