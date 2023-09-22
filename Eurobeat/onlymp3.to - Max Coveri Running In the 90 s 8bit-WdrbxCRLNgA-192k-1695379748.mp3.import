@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/onlymp3.to - Max Coveri Running In the 90 s 8bit-WdrbxCRLNgA-192k-1695379748.mp3-aa21b2e614576cb5c8c9901372584ded.mp3str"
+
+[deps]
+
+source_file="res://Eurobeat/onlymp3.to - Max Coveri Running In the 90 s 8bit-WdrbxCRLNgA-192k-1695379748.mp3"
+dest_files=[ "res://.import/onlymp3.to - Max Coveri Running In the 90 s 8bit-WdrbxCRLNgA-192k-1695379748.mp3-aa21b2e614576cb5c8c9901372584ded.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hbjfkjlf.mp3-1c2a4d81e5cd496e92fba8a320d8b945.mp3str"
+
+[deps]
+
+source_file="res://Eurobeat/hbjfkjlf.mp3"
+dest_files=[ "res://.import/hbjfkjlf.mp3-1c2a4d81e5cd496e92fba8a320d8b945.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

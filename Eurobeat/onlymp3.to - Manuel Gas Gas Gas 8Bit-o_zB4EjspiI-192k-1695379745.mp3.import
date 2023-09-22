@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/onlymp3.to - Manuel Gas Gas Gas 8Bit-o_zB4EjspiI-192k-1695379745.mp3-341ded40f08e525f03bd9e0198651ede.mp3str"
+
+[deps]
+
+source_file="res://Eurobeat/onlymp3.to - Manuel Gas Gas Gas 8Bit-o_zB4EjspiI-192k-1695379745.mp3"
+dest_files=[ "res://.import/onlymp3.to - Manuel Gas Gas Gas 8Bit-o_zB4EjspiI-192k-1695379745.mp3-341ded40f08e525f03bd9e0198651ede.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/X2Download.app - Initial D Burning Up For You 8 bit (128 kbps).mp3-755fefef7d2752f090d7a7f44f414840.mp3str"
+
+[deps]
+
+source_file="res://Eurobeat/X2Download.app - Initial D Burning Up For You 8 bit (128 kbps).mp3"
+dest_files=[ "res://.import/X2Download.app - Initial D Burning Up For You 8 bit (128 kbps).mp3-755fefef7d2752f090d7a7f44f414840.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
