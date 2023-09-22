@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/X2Download.app - U.N. Owen Was Her_ 8bit remix (Touhou 6_ EoSD) (128 kbps).mp3-870567284ef50677c9a7c1b9f6316618.mp3str"
+
+[deps]
+
+source_file="res://Eurobeat/X2Download.app - U.N. Owen Was Her_ 8bit remix (Touhou 6_ EoSD) (128 kbps).mp3"
+dest_files=[ "res://.import/X2Download.app - U.N. Owen Was Her_ 8bit remix (Touhou 6_ EoSD) (128 kbps).mp3-870567284ef50677c9a7c1b9f6316618.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
