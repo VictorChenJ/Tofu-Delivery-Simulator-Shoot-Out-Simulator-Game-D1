@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=11 format=2]
+[gd_resource type="TileSet" load_steps=10 format=2]
 
 [ext_resource path="res://asset/tilemap/pixelart.png" type="Texture" id=1]
 [ext_resource path="res://asset/tilemap/curve.png" type="Texture" id=2]
@@ -9,10 +9,6 @@ load_path = "res://.import/tiles_no_indicator.png-ef91bdd31ca15bd7ad3f4a4732dc58
 
 [sub_resource type="ConcavePolygonShape2D" id=2]
 segments = PoolVector2Array( 128, 64, 0, 64, 0, 64, 0, 0, 0, 0, 128, 0, 128, 0, 128, 64 )
-
-[sub_resource type="StreamTexture" id=3]
-flags = 4
-load_path = "res://.import/House2.png-676ff8a6f46b89c9fcac0e10f6a7b1fa.stex"
 
 [sub_resource type="ConcavePolygonShape2D" id=4]
 segments = PoolVector2Array( 128, 64, 0, 64, 0, 64, 0, 0, 0, 0, 128, 0, 128, 0, 128, 64 )
@@ -101,7 +97,6 @@ points = PoolVector2Array( 1280, 323.85, 641.111, 323.85, 641.111, 8.66241, 1280
 4/shapes = [  ]
 4/z_index = 0
 5/name = "House2.png 5"
-5/texture = SubResource( 3 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 0, 0, 128, 64 )
