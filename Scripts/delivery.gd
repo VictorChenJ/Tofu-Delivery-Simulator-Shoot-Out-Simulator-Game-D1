@@ -1,6 +1,7 @@
 extends Area2D
 
 var tofuAmount = 0
+signal tofu_delivered
 
 onready var delivery_effect = preload("res://Scenes/DeliveryEffect.tscn")
 
