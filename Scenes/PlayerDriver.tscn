@@ -61,6 +61,16 @@ rotation = 1.5708
 scale = Vector2( 0.1, 0.1 )
 stream = ExtResource( 7 )
 
+[node name="DriftSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+
+[node name="ReloadSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 7.62939e-06, 0 )
+scale = Vector2( 1, 1 )
+stream = ExtResource( 9 )
+volume_db = 4.0
+pitch_scale = 0.8
+
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 90, -4.5 )
 rotation = 1.5708
@@ -96,13 +106,5 @@ custom_colors/font_color_shadow = Color( 0.792157, 0, 0, 1 )
 max_value = 10.0
 value = 10.0
 percent_visible = false
-
-[node name="DriftSoundPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 8 )
-
-[node name="ReloadSoundPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 9 )
-volume_db = 4.0
-pitch_scale = 0.8
 
 [connection signal="body_entered" from="Crash" to="." method="_on_Crash_body_entered"]
