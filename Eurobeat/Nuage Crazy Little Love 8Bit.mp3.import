@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Nuage Crazy Little Love 8Bit.mp3-2c47fd2541893ecf95a8ff910700c02d.mp3str"
+
+[deps]
+
+source_file="res://Eurobeat/Nuage Crazy Little Love 8Bit.mp3"
+dest_files=[ "res://.import/Nuage Crazy Little Love 8Bit.mp3-2c47fd2541893ecf95a8ff910700c02d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

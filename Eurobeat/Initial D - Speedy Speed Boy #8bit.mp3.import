@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Initial D - Speedy Speed Boy #8bit.mp3-04555a02a93ada50c0dce48639c29222.mp3str"
+
+[deps]
+
+source_file="res://Eurobeat/Initial D - Speedy Speed Boy #8bit.mp3"
+dest_files=[ "res://.import/Initial D - Speedy Speed Boy #8bit.mp3-04555a02a93ada50c0dce48639c29222.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

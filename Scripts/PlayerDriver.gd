@@ -12,7 +12,7 @@ var tileSpeedModifiers = {
 
 #Hp related
 
-var hp = 15 setget set_hp
+var hp = 10 setget set_hp
 
 signal hp_changed
 signal died
@@ -176,8 +176,8 @@ func take_damage ( dmg ):
 	set_hp(hp - dmg)
 
 func set_hp(new_hp):
-	if new_hp > 15:
-		new_hp = 15
+	if new_hp > 10:
+		new_hp = 10
 	emit_signal("hp_changed", new_hp)
 	hp = new_hp
 	if hp <= 0:
@@ -199,7 +199,7 @@ func update_health():
 	var healthbar = $HealthBar
 	healthbar.value = hp
 	
-	if hp >= 15:
+	if hp >= 10:
 		healthbar.visible = false
 	else:
 		healthbar.visible = true
