@@ -2,8 +2,8 @@
 
 [ext_resource path="res://asset/sounds/Richochet.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/RichochetSound.gd" type="Script" id=2]
-[ext_resource path="res://hit_effect.gd" type="Script" id=3]
-[ext_resource path="res://hit_effect.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/hit_effect.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/hit_effect.tscn" type="PackedScene" id=4]
 
 [node name="BulletRichochetEffect" type="Node2D"]
 
