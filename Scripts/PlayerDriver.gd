@@ -208,4 +208,3 @@ func shoot(direction: float, speed: float):
 	elif (!$ReloadSoundPlayer.playing):
 		$ReloadSoundPlayer.play()
 		shootIndex = 0
-#tofu delivery

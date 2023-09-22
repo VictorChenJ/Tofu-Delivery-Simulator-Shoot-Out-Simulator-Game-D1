@@ -41,6 +41,7 @@ func _process(delta):
 	timer += attack_speed
 	if player:
 		_on_Player_playerposition(player.position)
+		$Sprite.rotation = get_angle_to(player.position)
 		if timer >= time_interval:
 			shoot(plpos, 400)
 			timer = 0
