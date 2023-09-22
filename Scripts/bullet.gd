@@ -16,11 +16,12 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_body_entered(body):
-	if body.is_in_group("players"):
-		body.take_damage(1)
-	var RichochetEffectsInst = Ricochet_effect.instance()
-	var world = get_tree().current_scene
-	world.add_child(RichochetEffectsInst)
-	RichochetEffectsInst.global_position = global_position
-	RichochetEffectsInst.rotate(rotation)
-	queue_free()
+	if !body.is_in_group("enemies"):
+		if body.is_in_group("players"):
+			body.take_damage(1)
+		var RichochetEffectsInst = Ricochet_effect.instance()
+		var world = get_tree().current_scene
+		world.add_child(RichochetEffectsInst)
+		RichochetEffectsInst.global_position = global_position
+		RichochetEffectsInst.rotate(rotation)
+		queue_free()
