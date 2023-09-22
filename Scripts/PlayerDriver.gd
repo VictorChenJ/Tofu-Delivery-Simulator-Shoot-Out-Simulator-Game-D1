@@ -16,8 +16,6 @@ var hp = 10 setget set_hp
 signal hp_changed
 signal died
 signal playerposition
-signal tofuamount
-signal tofu_changed
 signal tofu_delivered
 
 #tofu
@@ -176,12 +174,14 @@ func stop_driving_sounds():
 func take_damage ( dmg ):
 	set_hp(hp - dmg)
 
-func set_hp( new_hp ):
+func set_hp(new_hp):
+	if new_hp > 10:
+		new_hp = 10
 	emit_signal("hp_changed", new_hp)
 	hp = new_hp
 	if hp <= 0:
 		die()
-		
+
 func die():
 	emit_signal("died")
 	var deathEffectInst = death_effect.instance()
@@ -204,13 +204,9 @@ func update_health():
 		healthbar.visible = true
 
 #tofu stuff
-func get_tofu ( add ):
-	set_tofu(tofu + add)
-
-func set_tofu( new_tofu ):
-	emit_signal("tofu_changed", new_tofu)
-	emit_signal("tofuamount", new_tofu)
-	tofu = new_tofu
+func set_tofu(value):
+	tofu += value
+	print(tofu)
 
 #PlayerBullet
 func shoot(direction: float, speed: float):
