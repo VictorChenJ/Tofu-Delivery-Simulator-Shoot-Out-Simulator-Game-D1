@@ -14,12 +14,14 @@ func _on_delivery_body_entered(body):
 	if tofuAmount >= 1:
 		if body.is_in_group("players"):
 			body.get_tofu((-1))
-			body.take_damage((-5))
+			if body.hp < 10:
+				body.take_damage((-5))
 			emit_signal("tofu_delivered")
 			var deliveryEffectInst = delivery_effect.instance()
 			var world = get_tree().current_scene
 			world.add_child(deliveryEffectInst)
 			deliveryEffectInst.global_position = global_position
+			print(body.hp)
 			queue_free()
 	pass # Replace with function body.
 
