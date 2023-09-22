@@ -2,11 +2,12 @@ extends KinematicBody2D
 
 #Tile speed
 var tileSpeedModifiers = {
-	0: 1.0,  # Tile ID 1 has a speed modifier of 1.0 (normal speed)
-	1: 1.0,  # Tile ID 2 has a speed modifier of 1.5 (speed boost)
-	2: 1.0,   # Tile ID 3 has a speed modifier of 0.5 (slow down)
-	3: 1.0,   # Tile ID 3 has a speed modifier of 0.5 (slow down)
-	4: 0.9,   # Tile ID 3 has a speed modifier of 0.5 (slow down)
+	0: 1.0,  
+	1: 1.0,  
+	2: 1.0,   
+	3: 1.0,   
+	4: 0.9,
+	7: 1.0,
 }
 
 #Hp related
