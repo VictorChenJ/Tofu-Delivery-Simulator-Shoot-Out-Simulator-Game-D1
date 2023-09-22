@@ -49,6 +49,9 @@ var ammo = 5
 
 onready var death_effect = preload("res://Scenes/DeathEffect.tscn")
 
+func _ready() -> void:
+	connect("body_entered", self, "_on_body_entered")
+
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
 	get_input()
@@ -134,7 +137,9 @@ func _on_Crash_body_entered(body):
 	if (!body.is_in_group("players")):
 		take_damage(1)
 		$CollisionSoundPlayer.play()
-		pass # Replace with function body.
+	if body.is_in_group("enemies"):
+		body.take_damage(1)
+		print("Collided with: " + str(body))
 
 func play_driving_sounds():
 	if(!$DrivingStartupPlayer.playing && drivingStartupSound):
