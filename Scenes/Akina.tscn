@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://asset/tilemap/new_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/PlayerDriver.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/WinCondition.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/EnemiyPolice.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/timer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/delivery.gd" type="Script" id=11]
 
 [sub_resource type="ConcavePolygonShape2D" id=1]
 segments = PoolVector2Array( 0, 0, 64, 0, 64, 0, 64, 64, 64, 64, 0, 64, 0, 64, 0, 0 )
@@ -311,10 +312,15 @@ position = Vector2( -8, 192 )
 
 [node name="delivery" parent="WinCondition" instance=ExtResource( 7 )]
 position = Vector2( 1101, 27 )
+script = ExtResource( 11 )
 
 [node name="delivery2" parent="WinCondition" instance=ExtResource( 7 )]
+position = Vector2( -88, 75 )
+script = ExtResource( 11 )
 
 [node name="delivery3" parent="WinCondition" instance=ExtResource( 7 )]
+position = Vector2( -295, 2 )
+script = ExtResource( 11 )
 
 [node name="Tofu" parent="." instance=ExtResource( 3 )]
 position = Vector2( 715, 284 )
