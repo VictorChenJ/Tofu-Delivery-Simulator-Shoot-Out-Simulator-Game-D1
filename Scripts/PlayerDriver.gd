@@ -8,6 +8,8 @@ signal hp_changed
 signal died
 signal playerposition
 signal tofuamount
+signal tofu_changed
+signal tofu_delivered
 
 #tofu
 var tofu = 0 setget set_tofu
