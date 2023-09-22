@@ -3,7 +3,7 @@ extends "res://Scripts/Enemy.gd"
 func _ready():
 	Ehp = 3
 	attack_speed = 0.005
-	speed = 100
+	speed = 150
 	
 func _process(delta):
 	timer += attack_speed
