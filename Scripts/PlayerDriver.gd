@@ -98,7 +98,7 @@ func get_input():
 			acceleration = transform.x * engine_power
 		else:
 			acceleration = transform.x * engine_power * 0.35
-		print(tofu)
+		#print(tofu)
 		if(!braking):
 			play_driving_sounds()
 			accelerating = true
