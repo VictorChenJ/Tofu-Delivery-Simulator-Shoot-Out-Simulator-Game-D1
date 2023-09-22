@@ -72,9 +72,6 @@ position = Vector2( 3156, 221 )
 [node name="Enemy6" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3081, 151 )
 
-[node name="Enemy7" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3327, 173 )
-
 [node name="Enemy8" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3733, 82 )
 
@@ -101,9 +98,6 @@ position = Vector2( 4496, -1750 )
 
 [node name="Enemy16" parent="." instance=ExtResource( 5 )]
 position = Vector2( 4405, -1616 )
-
-[node name="Enemy17" parent="." instance=ExtResource( 5 )]
-position = Vector2( 316, 242 )
 
 [node name="Enemy18" parent="." instance=ExtResource( 5 )]
 position = Vector2( 4464, -420 )
@@ -337,6 +331,12 @@ position = Vector2( 23930, -1624 )
 position = Vector2( 30150, -1661 )
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 10 )]
+
+[node name="NecoEnemy2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3704, -986 )
+
+[node name="EnemyPolice4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2070, 215 )
 
 [connection signal="tofuamount" from="Player" to="WinCondition" method="_on_Player_tofuamount"]
 [connection signal="tofuamount" from="Player" to="WinCondition/delivery" method="_on_Player_tofuamount"]

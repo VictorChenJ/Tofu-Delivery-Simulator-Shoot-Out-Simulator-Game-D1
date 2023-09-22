@@ -95,6 +95,9 @@ custom_colors/font_color_shadow = Color( 0.792157, 0, 0, 1 )
 max_value = 10.0
 value = 10.0
 percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Crash" type="Area2D" parent="."]
 position = Vector2( 90, 4.5 )
