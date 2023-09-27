@@ -114,7 +114,7 @@ func get_input():
 		braking = false
 	if Input.is_action_just_pressed("left_click"):
 		mouse_position = rad2deg(get_angle_to(get_global_mouse_position())+rotation)
-		shoot(mouse_position,600)
+		shoot(mouse_position, 1200)
 	if (Input.is_action_pressed("reload") && !$ReloadSoundPlayer.playing):
 		shootIndex = 0
 		$ReloadSoundPlayer.play()
