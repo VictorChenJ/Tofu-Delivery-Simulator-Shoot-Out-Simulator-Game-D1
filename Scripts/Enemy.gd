@@ -76,4 +76,3 @@ func die():
 	world.add_child(deathEffectInst)
 	deathEffectInst.global_position = global_position
 	queue_free()
-	
