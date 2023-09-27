@@ -36,14 +36,20 @@ margin_right = 93.0
 margin_bottom = 54.0
 text = "Play"
 
-[node name="Tutorial2" type="Sprite" parent="."]
-position = Vector2( 790, 448 )
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+margin_left = 512.0
+margin_top = 300.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="Tutorial2" type="Sprite" parent="CenterContainer/HBoxContainer"]
+position = Vector2( 292, 179 )
 scale = Vector2( 0.796296, 0.796296 )
 texture = ExtResource( 2 )
 
-[node name="Tutorial" type="Sprite" parent="Tutorial2"]
-position = Vector2( -710.791, 1.2558 )
-scale = Vector2( 0.704414, 0.704414 )
+[node name="Tutorial" type="Sprite" parent="CenterContainer/HBoxContainer"]
+position = Vector2( -296, 194 )
+scale = Vector2( 0.560922, 0.560922 )
 texture = ExtResource( 3 )
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
