@@ -16,3 +16,5 @@ func _process(delta):
 	
 	var time_passed = "%02d : %02d : %03d" % [mins,secs,mils]
 	text = time_passed
+	var MapSettings= get_node("/root/GlobalVar")
+	MapSettings.time_passed = text
