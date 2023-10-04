@@ -2,7 +2,7 @@ extends Area2D
 
 signal tofu_delivered
 
-onready var delivery_effect = preload("res://Scenes/DeliveryEffect.tscn")
+onready var delivery_effect = preload("res://Scenes/effects/DeliveryEffect.tscn")
 
 func _on_delivery_body_entered(body):
 	if body.is_in_group("players"):

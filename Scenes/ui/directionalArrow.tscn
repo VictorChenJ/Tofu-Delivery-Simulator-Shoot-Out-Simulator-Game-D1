@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Arrow.gd" type="Script" id=1]
+[ext_resource path="res://asset/UI/arrow.png" type="Texture" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Arrow" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+script = ExtResource( 1 )

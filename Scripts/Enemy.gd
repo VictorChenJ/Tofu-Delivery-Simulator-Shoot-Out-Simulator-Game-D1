@@ -14,7 +14,7 @@ var motion = Vector2.ZERO
 var player = null
 
 # Bullet
-const obj_bullet = preload("res://Scenes/bullet.tscn")
+const obj_bullet = preload("res://Scenes/misc/bullet.tscn")
 var plpos = 0
 var timer = 0
 var time_interval = 1
@@ -23,7 +23,7 @@ var n = 0
 var damage = 1
 
 #death
-onready var death_effect = preload("res://Scenes/DeathEffect.tscn")
+onready var death_effect = preload("res://Scenes/effects/DeathEffect.tscn")
 
 # Følger efter player
 func _physics_process(delta):
