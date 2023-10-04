@@ -1,8 +1,5 @@
 extends KinematicBody2D
 
-##Player died
-var player_dead = false
-
 # Enemy health
 var Ehp = 1 setget set_Ehp
 signal Ehp_changed
@@ -20,7 +17,6 @@ var timer = 0
 var time_interval = 1
 var attack_speed = 0.015
 var n = 0
-var damage = 1
 
 #death
 onready var death_effect = preload("res://Scenes/effects/DeathEffect.tscn")
@@ -39,7 +35,6 @@ func shoot(direction: float, speed: float):
 	new_bullet.position = position
 	get_parent().add_child(new_bullet)
 	new_bullet.rotate(deg2rad(direction))
-	new_bullet.damage = damage
 	$GunshotSoundPlayer.play()
 
 func _process(delta):
@@ -63,8 +58,6 @@ func _on_Area2D_body_exited(body):
 	if body.is_in_group("players") and body == player:
 		print("exit")
 		player = null
-
-
 
 # Enemy health
 func take_damage(dmg):

@@ -110,10 +110,4 @@ position = Vector2( -44.9967, 900 )
 scale = Vector2( 0.999999, 0.999999 )
 shape = SubResource( 3 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-__meta__ = {
-"_editor_description_": "2 sekunder"
-}
-
 [connection signal="body_entered" from="Crash" to="." method="_on_Crash_body_entered"]
