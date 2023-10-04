@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Gas Gas Gas.mp3-83f5dce94691fbda8c03cfcc4ab70228.mp3str"
+
+[deps]
+
+source_file="res://asset/music/Gas Gas Gas.mp3"
+dest_files=[ "res://.import/Gas Gas Gas.mp3-83f5dce94691fbda8c03cfcc4ab70228.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

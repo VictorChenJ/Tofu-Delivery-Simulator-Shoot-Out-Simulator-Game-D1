@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SpeedySpeed.mp3-d9d0b0170b50a255fc6410e365ed5904.mp3str"
+
+[deps]
+
+source_file="res://asset/music/SpeedySpeed.mp3"
+dest_files=[ "res://.import/SpeedySpeed.mp3-d9d0b0170b50a255fc6410e365ed5904.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

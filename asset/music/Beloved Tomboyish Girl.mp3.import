@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Beloved Tomboyish Girl.mp3-67f2aa783f76b2f533c5a0bc6c4d5d42.mp3str"
+
+[deps]
+
+source_file="res://asset/music/Beloved Tomboyish Girl.mp3"
+dest_files=[ "res://.import/Beloved Tomboyish Girl.mp3-67f2aa783f76b2f533c5a0bc6c4d5d42.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
