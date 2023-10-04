@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/flowering nights.mp3-d5927e226298539d00bf5d4c049f6e50.mp3str"
+
+[deps]
+
+source_file="res://asset/music/flowering nights.mp3"
+dest_files=[ "res://.import/flowering nights.mp3-d5927e226298539d00bf5d4c049f6e50.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
