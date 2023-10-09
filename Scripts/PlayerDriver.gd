@@ -23,7 +23,7 @@ signal tofu_delivered
 var tofu = 0 setget set_tofu
 
 #PlayerBullet
-const obj_PlayerBullet = preload("res://Scenes/PlayerBullet.tscn")
+const obj_PlayerBullet = preload("res://Scenes/misc/PlayerBullet.tscn")
 var mouse_position = null
 var timer = 0
 var time_interval = 5.0
@@ -57,7 +57,7 @@ var drifting = false
 var shootIndex = 0
 var ammo = 5
 
-onready var death_effect = preload("res://Scenes/DeathEffect.tscn")
+onready var death_effect = preload("res://Scenes/effects/DeathEffect.tscn")
 
 func _ready() -> void:
 	connect("body_entered", self, "_on_body_entered")

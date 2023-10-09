@@ -3,7 +3,7 @@ extends Area2D
 var velocity: Vector2 = Vector2()
 var duration = 20
 
-onready var Ricochet_effect = preload("res://Scenes/BulletRichochetEffect.tscn")
+onready var Ricochet_effect = preload("res://Scenes/effects/BulletRichochetEffect.tscn")
 
 func _ready() -> void:
 	connect("body_entered", self, "_on_body_entered")

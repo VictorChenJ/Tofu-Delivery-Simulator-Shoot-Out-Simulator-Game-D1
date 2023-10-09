@@ -1,6 +1,6 @@
 extends Area2D
 
-onready var collection_effect = preload("res://Scenes/CollectionEffect.tscn")
+onready var collection_effect = preload("res://Scenes/effects/CollectionEffect.tscn")
 
 func _ready():
 	connect("body_entered", self, "_on_body_entered")

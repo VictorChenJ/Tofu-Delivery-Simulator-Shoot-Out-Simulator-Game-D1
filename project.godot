@@ -14,6 +14,10 @@ config/name="Tofu Delivery Shootout"
 run/main_scene="res://Scenes/StartMenu.tscn"
 config/icon="res://asset/icon.png"
 
+[autoload]
+
+GlobalVar="*res://Scenes/GlobalVar.tscn"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

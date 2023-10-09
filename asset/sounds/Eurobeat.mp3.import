@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Eurobeat.mp3-82877f78e83bb42ebd5f74a446f0bf5e.mp3str"
+
+[deps]
+
+source_file="res://asset/sounds/Eurobeat.mp3"
+dest_files=[ "res://.import/Eurobeat.mp3-82877f78e83bb42ebd5f74a446f0bf5e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
