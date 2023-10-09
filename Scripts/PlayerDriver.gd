@@ -59,7 +59,7 @@ var drifting = false
 var shootIndex = 0
 var ammo = 5
 
-onready var death_effect = preload("res://Scenes/effects/DeathEffect.tscn")
+onready var death_effect = preload("res://Scenes/effects/PlayerDeathEffect.tscn")
 
 func _ready() -> void:
 	connect("body_entered", self, "_on_body_entered")
@@ -193,8 +193,6 @@ func die():
 	var world = get_tree().current_scene
 	world.add_child(deathEffectInst)
 	deathEffectInst.global_position = global_position
-	yield(get_tree().create_timer(1.5), "timeout")
-	get_tree().change_scene("res://Scenes/menus/DeathScreen.tscn")
 	queue_free()
 
 	
