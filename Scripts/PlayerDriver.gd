@@ -61,6 +61,7 @@ var ammo = 6
 
 var shotgun = true
 var shotgunBulletLayers = 1
+var bulletSpread = 5
 
 onready var death_effect = preload("res://Scenes/effects/PlayerDeathEffect.tscn")
 
@@ -121,12 +122,12 @@ func get_input():
 		if Input.is_action_just_pressed("left_click"):
 			mouse_position = rad2deg(get_angle_to(get_global_mouse_position())+rotation)
 			if shotgun:
-				var bulletSpread = 5
+				var bulletSpreadIncrease = bulletSpread
 				for n in shotgunBulletLayers:
 					shoot(mouse_position, 1200)
-					shoot(mouse_position + bulletSpread, 1200)
-					shoot(mouse_position - bulletSpread, 1200)
-					bulletSpread += 5
+					shoot(mouse_position + bulletSpreadIncrease, 1200)
+					shoot(mouse_position - bulletSpreadIncrease, 1200)
+					bulletSpreadIncrease += bulletSpread
 			else:
 				shoot(mouse_position, 1200)
 
