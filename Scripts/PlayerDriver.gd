@@ -57,7 +57,10 @@ var braking = false
 var drifting = false
 
 var shootIndex = 0
-var ammo = 5
+var ammo = 6
+
+var shotgun = true
+var shotgunBulletLayers = 1
 
 onready var death_effect = preload("res://Scenes/effects/PlayerDeathEffect.tscn")
 
@@ -117,7 +120,16 @@ func get_input():
 			braking = false
 		if Input.is_action_just_pressed("left_click"):
 			mouse_position = rad2deg(get_angle_to(get_global_mouse_position())+rotation)
-			shoot(mouse_position, 1200)
+			if shotgun:
+				var bulletSpread = 5
+				for n in shotgunBulletLayers:
+					shoot(mouse_position, 1200)
+					shoot(mouse_position + bulletSpread, 1200)
+					shoot(mouse_position - bulletSpread, 1200)
+					bulletSpread += 5
+			else:
+				shoot(mouse_position, 1200)
+
 		if (Input.is_action_pressed("reload") && !$ReloadSoundPlayer.playing):
 			shootIndex = 0
 			$ReloadSoundPlayer.play()
@@ -216,7 +228,7 @@ func set_tofu(value):
 #PlayerBullet
 func shoot(direction: float, speed: float):
 	if dead == false:
-		if (shootIndex <= ammo && !$ReloadSoundPlayer.playing):
+		if (shootIndex < ammo && !$ReloadSoundPlayer.playing):
 			var new_PlayerBullet = obj_PlayerBullet.instance()
 			shootIndex += 1
 			new_PlayerBullet.velocity = Vector2(speed, 0).rotated(deg2rad(direction))
