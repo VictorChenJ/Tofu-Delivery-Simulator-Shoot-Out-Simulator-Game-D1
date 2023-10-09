@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var dead = false
+
 #Tile speed
 var tileSpeedModifiers = {
 	0: 1.0,  
@@ -23,7 +25,7 @@ signal tofu_delivered
 var tofu = 0 setget set_tofu
 
 #PlayerBullet
-const obj_PlayerBullet = preload("res://Scenes/misc/PlayerBullet.tscn")
+const obj_PlayerBullet = preload("res://Scenes/PlayerBullet.tscn")
 var mouse_position = null
 var timer = 0
 var time_interval = 5.0
@@ -57,7 +59,7 @@ var drifting = false
 var shootIndex = 0
 var ammo = 5
 
-onready var death_effect = preload("res://Scenes/effects/DeathEffect.tscn")
+onready var death_effect = preload("res://Scenes/DeathEffect.tscn")
 
 func _ready() -> void:
 	connect("body_entered", self, "_on_body_entered")
@@ -87,44 +89,45 @@ func apply_friction():
 		velocity *= tileSpeedModifiers[tile_id]
 
 func get_input():
-	var turn = 0
-	if Input.is_action_pressed("steer_right"):
-		turn += 1
-	if Input.is_action_pressed("steer_left"):
-		turn -= 1
-	steer_angle = turn * steering_angle
-	if Input.is_action_pressed("accelerate"):
-		if(!drifting):
-			acceleration = transform.x * engine_power
+	if dead == false:
+		var turn = 0
+		if Input.is_action_pressed("steer_right"):
+			turn += 1
+		if Input.is_action_pressed("steer_left"):
+			turn -= 1
+		steer_angle = turn * steering_angle
+		if Input.is_action_pressed("accelerate"):
+			if(!drifting):
+				acceleration = transform.x * engine_power
+			else:
+				acceleration = transform.x * engine_power * 0.35
+			if(!braking):
+				play_driving_sounds()
+				accelerating = true
+		elif(!braking):
+			stop_driving_sounds()
+			accelerating = false
+		if Input.is_action_pressed("brake"):
+			acceleration = transform.x * braking_power
+			if(!accelerating):
+				play_driving_sounds()
+				braking = true
+		elif(!accelerating):
+			stop_driving_sounds()
+			braking = false
+		if Input.is_action_just_pressed("left_click"):
+			mouse_position = rad2deg(get_angle_to(get_global_mouse_position())+rotation)
+			shoot(mouse_position, 1200)
+		if (Input.is_action_pressed("reload") && !$ReloadSoundPlayer.playing):
+			shootIndex = 0
+			$ReloadSoundPlayer.play()
+		if (Input.is_action_pressed("handbrake") && velocity.x != 0):
+			drifting = true
+			if(!$DriftSoundPlayer.playing):
+				$DriftSoundPlayer.play()
 		else:
-			acceleration = transform.x * engine_power * 0.35
-		if(!braking):
-			play_driving_sounds()
-			accelerating = true
-	elif(!braking):
-		stop_driving_sounds()
-		accelerating = false
-	if Input.is_action_pressed("brake"):
-		acceleration = transform.x * braking_power
-		if(!accelerating):
-			play_driving_sounds()
-			braking = true
-	elif(!accelerating):
-		stop_driving_sounds()
-		braking = false
-	if Input.is_action_just_pressed("left_click"):
-		mouse_position = rad2deg(get_angle_to(get_global_mouse_position())+rotation)
-		shoot(mouse_position, 1200)
-	if (Input.is_action_pressed("reload") && !$ReloadSoundPlayer.playing):
-		shootIndex = 0
-		$ReloadSoundPlayer.play()
-	if (Input.is_action_pressed("handbrake") && velocity.x != 0):
-		drifting = true
-		if(!$DriftSoundPlayer.playing):
-			$DriftSoundPlayer.play()
-	else:
-		drifting = false
-		$DriftSoundPlayer.stop()
+			drifting = false
+			$DriftSoundPlayer.stop()
 
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base / 2.0
@@ -185,12 +188,15 @@ func set_hp(new_hp):
 
 func die():
 	emit_signal("died")
+	dead = true
 	var deathEffectInst = death_effect.instance()
 	var world = get_tree().current_scene
 	world.add_child(deathEffectInst)
 	deathEffectInst.global_position = global_position
+	yield(get_tree().create_timer(1.5), "timeout")
 	get_tree().change_scene("res://Scenes/DeathScreen.tscn")
 	queue_free()
+
 	
 func _process(delta):
 	emit_signal("playerposition", position)
@@ -211,14 +217,15 @@ func set_tofu(value):
 
 #PlayerBullet
 func shoot(direction: float, speed: float):
-	if (shootIndex <= ammo && !$ReloadSoundPlayer.playing):
-		var new_PlayerBullet = obj_PlayerBullet.instance()
-		shootIndex += 1
-		new_PlayerBullet.velocity = Vector2(speed, 0).rotated(deg2rad(direction))
-		new_PlayerBullet.position = position
-		get_parent().add_child(new_PlayerBullet)
-		new_PlayerBullet.rotate(deg2rad(direction))
-		$GunShotSoundPlayer.play()
-	elif (!$ReloadSoundPlayer.playing):
-		$ReloadSoundPlayer.play()
-		shootIndex = 0
+	if dead == false:
+		if (shootIndex <= ammo && !$ReloadSoundPlayer.playing):
+			var new_PlayerBullet = obj_PlayerBullet.instance()
+			shootIndex += 1
+			new_PlayerBullet.velocity = Vector2(speed, 0).rotated(deg2rad(direction))
+			new_PlayerBullet.position = position
+			get_parent().add_child(new_PlayerBullet)
+			new_PlayerBullet.rotate(deg2rad(direction))
+			$GunShotSoundPlayer.play()
+		elif (!$ReloadSoundPlayer.playing):
+			$ReloadSoundPlayer.play()
+			shootIndex = 0
