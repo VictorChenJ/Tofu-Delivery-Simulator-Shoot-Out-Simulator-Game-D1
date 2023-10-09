@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/DeathScreen.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/DeathTime.gd" type="Script" id=2]
 
 [node name="DeathScreen" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -16,22 +17,38 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 460.0
-margin_top = 273.0
+margin_top = 239.0
 margin_right = 563.0
-margin_bottom = 327.0
+margin_bottom = 361.0
 custom_constants/separation = 20
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 103.0
 margin_bottom = 14.0
+text = "Your Highscore"
+align = 1
+valign = 1
+
+[node name="highscore" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 34.0
+margin_right = 103.0
+margin_bottom = 48.0
+align = 1
+valign = 1
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 103.0
+margin_bottom = 82.0
 text = "YOU DIED NERD"
 align = 1
 valign = 1
 
 [node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 34.0
+margin_top = 102.0
 margin_right = 103.0
-margin_bottom = 54.0
+margin_bottom = 122.0
 text = "Restart"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
