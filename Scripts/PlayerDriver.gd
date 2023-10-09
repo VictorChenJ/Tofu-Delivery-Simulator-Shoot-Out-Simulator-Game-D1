@@ -25,7 +25,7 @@ signal tofu_delivered
 var tofu = 0 setget set_tofu
 
 #PlayerBullet
-const obj_PlayerBullet = preload("res://Scenes/PlayerBullet.tscn")
+const obj_PlayerBullet = preload("res://Scenes/misc/PlayerBullet.tscn")
 var mouse_position = null
 var timer = 0
 var time_interval = 5.0
@@ -59,7 +59,7 @@ var drifting = false
 var shootIndex = 0
 var ammo = 5
 
-onready var death_effect = preload("res://Scenes/DeathEffect.tscn")
+onready var death_effect = preload("res://Scenes/effects/DeathEffect.tscn")
 
 func _ready() -> void:
 	connect("body_entered", self, "_on_body_entered")
@@ -194,7 +194,7 @@ func die():
 	world.add_child(deathEffectInst)
 	deathEffectInst.global_position = global_position
 	yield(get_tree().create_timer(1.5), "timeout")
-	get_tree().change_scene("res://Scenes/DeathScreen.tscn")
+	get_tree().change_scene("res://Scenes/menus/DeathScreen.tscn")
 	queue_free()
 
 	
