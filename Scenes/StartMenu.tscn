@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://asset/UI/tutorial2.png" type="Texture" id=2]
 [ext_resource path="res://asset/UI/tutorial.png" type="Texture" id=3]
+[ext_resource path="res://asset/UI/tutorial3.png" type="Texture" id=4]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -43,13 +44,18 @@ margin_right = 512.0
 margin_bottom = 300.0
 
 [node name="Tutorial2" type="Sprite" parent="CenterContainer/HBoxContainer"]
-position = Vector2( 176, 148 )
-scale = Vector2( 0.796296, 0.796296 )
+position = Vector2( 66.5556, 148 )
+scale = Vector2( 0.740741, 0.740741 )
 texture = ExtResource( 2 )
 
 [node name="Tutorial" type="Sprite" parent="CenterContainer/HBoxContainer"]
-position = Vector2( -232, 148 )
+position = Vector2( -291, 143 )
 scale = Vector2( 0.560922, 0.560922 )
 texture = ExtResource( 3 )
+
+[node name="Tutorial3" type="Sprite" parent="."]
+position = Vector2( 864.343, 450.25 )
+scale = Vector2( 0.733796, 0.733796 )
+texture = ExtResource( 4 )
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
