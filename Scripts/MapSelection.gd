@@ -24,7 +24,7 @@ func _ready():
 
 
 func _on_AkinaLevel_pressed():
-	get_tree().change_scene("res://Scenes/Akina.tscn")
+	get_tree().change_scene("res://Scenes/maps/Akina.tscn")
 	pass # Replace with function body.
 
 
