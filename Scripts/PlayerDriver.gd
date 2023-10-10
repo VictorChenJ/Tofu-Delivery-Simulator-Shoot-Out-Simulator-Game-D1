@@ -57,6 +57,7 @@ var braking = false
 var drifting = false
 
 var shootIndex = 0
+var trueAmmo = 6 # The ammo it returns to when removing weapons
 var ammo = 6
 var bulletSpeed = 1200
 
@@ -257,3 +258,4 @@ func shoot(direction: float, speed: float):
 func removeWeapons():
 	shotgun = false
 	burst = false
+	ammo = trueAmmo
