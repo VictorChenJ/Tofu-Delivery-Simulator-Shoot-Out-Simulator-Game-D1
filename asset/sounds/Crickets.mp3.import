@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Crickets.mp3-fd4a1ed2e6be71478a71bd121e75e8fe.mp3str"
+
+[deps]
+
+source_file="res://asset/sounds/Crickets.mp3"
+dest_files=[ "res://.import/Crickets.mp3-fd4a1ed2e6be71478a71bd121e75e8fe.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
