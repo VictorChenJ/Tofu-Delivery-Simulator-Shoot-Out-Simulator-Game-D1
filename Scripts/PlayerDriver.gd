@@ -109,6 +109,8 @@ func get_input():
 		if Input.is_action_pressed("steer_left"):
 			turn -= 1
 		steer_angle = turn * steering_angle
+		if Input.is_action_pressed("godmode"):
+			hp = 10000;
 		if Input.is_action_pressed("accelerate"):
 			if(!drifting):
 				acceleration = transform.x * engine_power
