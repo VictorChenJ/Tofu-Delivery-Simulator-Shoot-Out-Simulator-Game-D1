@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Motorcycle.mp3-d5269d680664cceb8c94b6615be99994.mp3str"
+
+[deps]
+
+source_file="res://asset/sounds/Motorcycle.mp3"
+dest_files=[ "res://.import/Motorcycle.mp3-d5269d680664cceb8c94b6615be99994.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
