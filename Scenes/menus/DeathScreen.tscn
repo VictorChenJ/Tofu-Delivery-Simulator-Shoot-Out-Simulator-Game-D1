@@ -3,7 +3,8 @@
 [ext_resource path="res://Scripts/DeathScreen.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/DeathTime.gd" type="Script" id=2]
 [ext_resource path="res://asset/takumi-sad.ogv" type="VideoStream" id=5]
-[ext_resource path="res://Scenes/menus/TakumiSad.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/TakumiSad.gd" type="Script" id=6]
+
 
 [node name="DeathScreen2" type="CanvasLayer"]
 script = ExtResource( 1 )
