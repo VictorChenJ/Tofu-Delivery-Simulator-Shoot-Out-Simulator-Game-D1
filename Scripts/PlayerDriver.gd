@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var dead = false
 
+onready var driftingparticles=$Driftingparticles
 #Tile speed
 var tileSpeedModifiers = {
 	0: 1.0,  
@@ -57,12 +58,14 @@ var braking = false
 var drifting = false
 
 var shootIndex = 0
+var trueAmmo = 6 # The ammo it returns to when removing weapons
 var ammo = 6
 var bulletSpeed = 1200
 
 var shotgun = false
-var shotgunBulletLayers = 1
+var shotgunBulletLayers = 2
 var bulletSpread = 5
+var bulletSpreadIncrease = bulletSpread # Increases bullet spread the more shots are fire at the same time
 
 var burst = false
 var burstShots = 3
@@ -128,9 +131,8 @@ func get_input():
 		if Input.is_action_just_pressed("left_click"):
 			mouse_position = rad2deg(get_angle_to(get_global_mouse_position())+rotation)
 			if shotgun:
-				var bulletSpreadIncrease = bulletSpread
+				bulletSpreadIncrease = bulletSpread
 				for n in shotgunBulletLayers:
-					shoot(mouse_position, bulletSpeed)
 					shoot(mouse_position + bulletSpreadIncrease, bulletSpeed)
 					shoot(mouse_position - bulletSpreadIncrease, bulletSpeed)
 					bulletSpreadIncrease += bulletSpread
@@ -141,7 +143,7 @@ func get_input():
 						shoot(mouse_position, bulletSpeed)
 						yield(get_tree().create_timer(burstDelay), "timeout")
 					bursting = false
-			else:
+			if !burst:
 				shoot(mouse_position, bulletSpeed)
 
 		if (Input.is_action_pressed("reload") && !$ReloadSoundPlayer.playing):
@@ -163,10 +165,12 @@ func calculate_steering(delta):
 	if velocity.length() > slip_speed:
 		traction = traction_fast
 	if (drifting == true):
+		driftingparticles.emit=1
 		rear_wheel += velocity.rotated(steer_angle) * delta
 		front_wheel -= velocity.rotated(steer_angle) * delta
 		new_heading = (front_wheel - rear_wheel).normalized()
 	else:
+		driftingparticles.emit=0
 		rear_wheel -= velocity * delta
 		front_wheel -= velocity.rotated(steer_angle) * delta
 		new_heading = (front_wheel - rear_wheel).normalized()
@@ -257,3 +261,4 @@ func shoot(direction: float, speed: float):
 func removeWeapons():
 	shotgun = false
 	burst = false
+	ammo = trueAmmo

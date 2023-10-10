@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/PlayerDriver.gd" type="Script" id=1]
 [ext_resource path="res://asset/character/carrotated.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://asset/sounds/Drift.mp3" type="AudioStream" id=8]
 [ext_resource path="res://asset/sounds/Reload.mp3" type="AudioStream" id=9]
 [ext_resource path="res://asset/sounds/Driving.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Scenes/effects/Drifting particles.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 10 )
@@ -115,5 +116,9 @@ wait_time = 2.0
 __meta__ = {
 "_editor_description_": "2 sekunder"
 }
+
+[node name="Driftingparticles" parent="." instance=ExtResource( 11 )]
+position = Vector2( -12, 15 )
+rotation = 1.5708
 
 [connection signal="body_entered" from="Crash" to="." method="_on_Crash_body_entered"]

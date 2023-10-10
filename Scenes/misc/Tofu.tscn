@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://asset/collectables/Tofu.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tofu.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/aura.gd" type="Script" id=3]
 [ext_resource path="res://asset/misc/aura.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/ui/directionalArrow tofu.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CanvasItemMaterial" id=2]
 blend_mode = 1
@@ -29,5 +30,7 @@ material = SubResource( 4 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 4 )
 script = ExtResource( 3 )
+
+[node name="DirectionalArrow tofu" parent="." instance=ExtResource( 5 )]
 
 [connection signal="body_entered" from="." to="." method="_on_Tofu_body_entered"]

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/delivery.gd" type="Script" id=1]
 [ext_resource path="res://asset/misc/particle beta.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/ui/directionalArrow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/ui/directionalArrow delivery.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=5]
 blend_mode = 1
