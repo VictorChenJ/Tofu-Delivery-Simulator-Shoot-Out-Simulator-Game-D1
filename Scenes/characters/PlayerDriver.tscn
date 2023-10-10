@@ -118,7 +118,7 @@ __meta__ = {
 }
 
 [node name="Driftingparticles" parent="." instance=ExtResource( 11 )]
-position = Vector2( -12, 15 )
-rotation = 1.5708
+position = Vector2( -32, 8 )
+rotation = 3.66519
 
 [connection signal="body_entered" from="Crash" to="." method="_on_Crash_body_entered"]
