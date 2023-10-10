@@ -1,31 +1,53 @@
-extends Sprite
-bool onscreen(true)
-var projectResolution=Vector2(ProjectSettings.get_setting("display/window/size/viewport_width"),ProjectSettings.get_setting("display/window/size/viewport_height"))
-func isOnScreen(target):
-		if(target.top > 0 && target.top < screen.height && target.left < screen.width && target.left > 0):
-		{return true;}
-	else{
+extends Node2D
 
-		//the target is off-screen, find indicator position.
-
-		return false;
-
-	}
-
-}
-
-	pass
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var sprite=$Arrow
+onready var icon=$Arrow/Icon
+var target_position=null
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _physics_process(delta):
+	var canvas =get_canvas_transform()
+	var top_left = -canvas.origin/ canvas.get_scale()
+	var size = get_viewport_rect().size/canvas.get_scale()
+	
+	set_marker_position(Rect2(top_left,size))
 
+func set_marker_position(bounds : Rect2):
+	if target_position == null:
+		sprite.global_position.x = clamp(global_position.x,bounds.position.x,bounds.end.x)
+		sprite.global_position.y = clamp(global_position.y,bounds.position.y,bounds.end.y)
+	else:
+		var displacement = global_position - target_position
+		var length
+		
+		var tl=(bounds.position-target_position).angle()
+		var tr=(Vector2(bounds.end.x,bounds.position.y)-target_position).angle() 
+		var bl=(Vector2(bounds.position.x,bounds.end.y)-target_position).angle() 
+		var br=(bounds.end-target_position).angle()
+		
+		if (displacement.angle()>tl&&displacement.angle()< tr
+				|| displacement.angle()<bl&&displacement.angle()>br):
+			var y_length=clamp(displacement.y,bounds.position.y-target_position.y,\
+					bounds.end.y-target_position.y) 
+			var angle =displacement.angle()-PI/2
+			length = y_length/cos(angle) if cos(angle) != 0 else y_length
+		else:
+			var x_length=clamp(displacement.x,bounds.position.x-target_position.x,\
+					bounds.end.y-target_position.x) 
+			var angle =displacement.angle()
+			length = x_length/cos(angle) if cos(angle) != 0 else x_length
+		
+		sprite.global_position= polar2cartesian(length,displacement.angle())+target_position
+	
+	if bounds.has_point(global_position):
+		hide()
+		print("balls")
+	else:
+		show()
+		print("bruh")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func set_marker_rotation():
+	var spriteangle =(global_position-sprite.global_position).angle()
+	sprite.rotation=spriteangle
+	icon.global_rotation=0
+	

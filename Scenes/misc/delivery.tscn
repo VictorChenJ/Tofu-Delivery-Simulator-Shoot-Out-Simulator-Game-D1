@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/delivery.gd" type="Script" id=1]
 [ext_resource path="res://asset/misc/particle beta.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/ui/directionalArrow.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=5]
 blend_mode = 1
@@ -49,5 +50,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="DirectionalArrow" parent="." instance=ExtResource( 3 )]
 
 [connection signal="body_entered" from="." to="." method="_on_delivery_body_entered"]
