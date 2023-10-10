@@ -58,10 +58,16 @@ var drifting = false
 
 var shootIndex = 0
 var ammo = 6
+var bulletSpeed = 1200
 
-var shotgun = true
+var shotgun = false
 var shotgunBulletLayers = 1
 var bulletSpread = 5
+
+var burst = true
+var burstShots = 3
+var burstDelay = 0.1
+var bursting = false # Is the player shooting with burst currently?
 
 onready var death_effect = preload("res://Scenes/effects/PlayerDeathEffect.tscn")
 
@@ -124,12 +130,19 @@ func get_input():
 			if shotgun:
 				var bulletSpreadIncrease = bulletSpread
 				for n in shotgunBulletLayers:
-					shoot(mouse_position, 1200)
-					shoot(mouse_position + bulletSpreadIncrease, 1200)
-					shoot(mouse_position - bulletSpreadIncrease, 1200)
+					shoot(mouse_position, bulletSpeed)
+					shoot(mouse_position + bulletSpreadIncrease, bulletSpeed)
+					shoot(mouse_position - bulletSpreadIncrease, bulletSpeed)
 					bulletSpreadIncrease += bulletSpread
+			if burst:
+				if !bursting:
+					for n in burstShots:
+						bursting = true
+						shoot(mouse_position, bulletSpeed)
+						yield(get_tree().create_timer(burstDelay), "timeout")
+					bursting = false
 			else:
-				shoot(mouse_position, 1200)
+				shoot(mouse_position, bulletSpeed)
 
 		if (Input.is_action_pressed("reload") && !$ReloadSoundPlayer.playing):
 			shootIndex = 0
