@@ -64,7 +64,7 @@ var shotgun = false
 var shotgunBulletLayers = 1
 var bulletSpread = 5
 
-var burst = true
+var burst = false
 var burstShots = 3
 var burstDelay = 0.1
 var bursting = false # Is the player shooting with burst currently?
@@ -253,3 +253,7 @@ func shoot(direction: float, speed: float):
 		elif (!$ReloadSoundPlayer.playing):
 			$ReloadSoundPlayer.play()
 			shootIndex = 0
+
+func removeWeapons():
+	shotgun = false
+	burst = false
