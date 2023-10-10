@@ -11,6 +11,7 @@ func _physics_process(delta):
 	var size = get_viewport_rect().size/canvas.get_scale()
 	
 	set_marker_position(Rect2(top_left,size))
+	set_marker_rotation()
 
 func set_marker_position(bounds : Rect2):
 	if target_position == null:
@@ -41,13 +42,12 @@ func set_marker_position(bounds : Rect2):
 	
 	if bounds.has_point(global_position):
 		hide()
-		print("balls")
 	else:
 		show()
-		print("bruh")
 
 func set_marker_rotation():
 	var spriteangle =(global_position-sprite.global_position).angle()
 	sprite.rotation=spriteangle
 	icon.global_rotation=0
-	
+#func _process(delta):
+
