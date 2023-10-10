@@ -6,7 +6,6 @@ func _ready():
 	#print(get_child_count())
 	wincon = get_child_count()
 	#print(get_tree().current_scene.filename)
-	pass # Replace with function body.
 
 
 

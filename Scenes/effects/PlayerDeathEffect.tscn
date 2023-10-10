@@ -7,6 +7,8 @@
 [node name="PlayerDeathEffect" type="Node2D"]
 
 [node name="DeathSound" parent="." instance=ExtResource( 1 )]
+volume_db = 24.0
+attenuation = 0.277392
 
 [node name="Explosion" parent="." instance=ExtResource( 2 )]
 
