@@ -1,7 +1,6 @@
 extends Node2D
 
 onready var sprite=$Arrow
-onready var icon=$Arrow/Icon
 var target_position=null
 
 
@@ -48,6 +47,4 @@ func set_marker_position(bounds : Rect2):
 func set_marker_rotation():
 	var spriteangle =(global_position-sprite.global_position).angle()
 	sprite.rotation=spriteangle
-	icon.global_rotation=0
-#func _process(delta):
 
