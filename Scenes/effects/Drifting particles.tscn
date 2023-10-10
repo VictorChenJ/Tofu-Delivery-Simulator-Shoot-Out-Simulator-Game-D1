@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://asset/misc/particle drifting sparks.png" type="Texture" id=1]
+[ext_resource path="res://asset/misc/particle drifting.png" type="Texture" id=2]
+[ext_resource path="res://asset/misc/gradiant drifting.tres" type="Gradient" id=3]
+[ext_resource path="res://Scenes/effects/Drifting particles.gd" type="Script" id=4]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="GradientTexture" id=2]
+gradient = ExtResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 5
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 0.0
+emission_ring_height = 1.0
+emission_ring_axis = Vector3( 0, 0, 1 )
+flag_disable_z = true
+direction = Vector3( 100, 0, 0 )
+spread = 65.1
+gravity = Vector3( 100, 0, 0 )
+initial_velocity = 30.0
+angular_velocity = 30.0
+angular_velocity_random = 0.26
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 2 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+
+[sub_resource type="GradientTexture" id=5]
+gradient = ExtResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+direction = Vector3( 100, -30, 0 )
+gravity = Vector3( 0, 48, 0 )
+initial_velocity = 100.0
+angular_velocity = 5.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 5 )
+
+[node name="Drifting particles" type="Node2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 4 )
+
+[node name="Drift" type="Particles2D" parent="."]
+material = SubResource( 1 )
+lifetime = 0.5
+speed_scale = 2.17
+explosiveness = 0.1
+randomness = 1.0
+process_material = SubResource( 3 )
+texture = ExtResource( 2 )
+
+[node name="Sparks" type="Particles2D" parent="."]
+material = SubResource( 4 )
+position = Vector2( -6, 2 )
+amount = 3
+lifetime = 0.5
+speed_scale = 13.32
+process_material = SubResource( 6 )
+texture = ExtResource( 1 )
