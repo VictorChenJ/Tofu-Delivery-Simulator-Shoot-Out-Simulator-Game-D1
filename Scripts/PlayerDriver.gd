@@ -142,7 +142,7 @@ func get_input():
 						shoot(mouse_position, bulletSpeed)
 						yield(get_tree().create_timer(burstDelay), "timeout")
 					bursting = false
-			else:
+			if !shotgun && !burst:
 				shoot(mouse_position, bulletSpeed)
 
 		if (Input.is_action_pressed("reload") && !$ReloadSoundPlayer.playing):
