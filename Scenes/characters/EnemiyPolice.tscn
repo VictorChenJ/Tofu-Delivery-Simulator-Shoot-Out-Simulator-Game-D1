@@ -6,8 +6,9 @@
 [ext_resource path="res://asset/character/Lights_ON_002.png" type="Texture" id=4]
 [ext_resource path="res://asset/sounds/Siren.mp3" type="AudioStream" id=5]
 [ext_resource path="res://asset/misc/light.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/characters/PoliceLight.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/characters/PoliceLight2.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/PoliceLight.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/PoliceLight2.gd" type="Script" id=8]
+
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 17.8785
