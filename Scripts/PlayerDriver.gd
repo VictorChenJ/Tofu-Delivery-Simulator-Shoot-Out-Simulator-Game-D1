@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var dead = false
 
+onready var driftingparticles=$Driftingparticles
 #Tile speed
 var tileSpeedModifiers = {
 	0: 1.0,  
@@ -165,10 +166,12 @@ func calculate_steering(delta):
 	if velocity.length() > slip_speed:
 		traction = traction_fast
 	if (drifting == true):
+		driftingparticles.emit=1
 		rear_wheel += velocity.rotated(steer_angle) * delta
 		front_wheel -= velocity.rotated(steer_angle) * delta
 		new_heading = (front_wheel - rear_wheel).normalized()
 	else:
+		driftingparticles.emit=0
 		rear_wheel -= velocity * delta
 		front_wheel -= velocity.rotated(steer_angle) * delta
 		new_heading = (front_wheel - rear_wheel).normalized()
