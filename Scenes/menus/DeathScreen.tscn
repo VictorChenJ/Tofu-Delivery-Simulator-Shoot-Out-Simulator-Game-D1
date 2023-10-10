@@ -5,8 +5,7 @@
 [ext_resource path="res://asset/takumi-sad.ogv" type="VideoStream" id=5]
 [ext_resource path="res://Scenes/menus/TakumiSad.gd" type="Script" id=6]
 
-
-[node name="DeathScreen" type="CanvasLayer"]
+[node name="DeathScreen2" type="CanvasLayer"]
 script = ExtResource( 1 )
 
 [node name="Background" type="ColorRect" parent="."]
@@ -18,21 +17,25 @@ color = Color( 0.270588, 0.419608, 0.611765, 0.435294 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 margin_left = 450.0
 margin_top = 239.0
 margin_right = 573.0
 margin_bottom = 361.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+margin_right = 123.0
+margin_bottom = 122.0
 custom_constants/separation = 20
 
-[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 margin_right = 123.0
 margin_bottom = 14.0
 text = "Your time till death"
 align = 1
 valign = 1
 
-[node name="highscore" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="highscore" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 margin_top = 34.0
 margin_right = 123.0
 margin_bottom = 48.0
@@ -40,7 +43,7 @@ align = 1
 valign = 1
 script = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 margin_top = 68.0
 margin_right = 123.0
 margin_bottom = 82.0
@@ -48,19 +51,11 @@ text = "YOU DIED NERD"
 align = 1
 valign = 1
 
-[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="RestartButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 margin_top = 102.0
 margin_right = 123.0
 margin_bottom = 122.0
 text = "Restart"
-
-[node name="TakumiSad" type="VideoPlayer" parent="."]
-margin_left = 686.0
-margin_top = 215.0
-margin_right = 997.0
-margin_bottom = 380.0
-stream = ExtResource( 5 )
-script = ExtResource( 6 )
 
 [node name="Label3" type="Label" parent="."]
 margin_left = 779.0
@@ -71,4 +66,12 @@ text = "This is you"
 align = 1
 valign = 1
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
+[node name="TakumiSad" type="VideoPlayer" parent="."]
+margin_left = 692.0
+margin_top = 223.0
+margin_right = 983.0
+margin_bottom = 362.0
+stream = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]

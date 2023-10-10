@@ -4,9 +4,17 @@
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
-[node name="Label" type="Label" parent="."]
-margin_left = 478.0
-margin_right = 534.0
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer2"]
+margin_left = 484.0
+margin_right = 540.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer"]
+margin_right = 56.0
 margin_bottom = 14.0
 text = "00:00:00"
 script = ExtResource( 1 )
