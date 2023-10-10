@@ -133,7 +133,6 @@ func get_input():
 			if shotgun:
 				bulletSpreadIncrease = bulletSpread
 				for n in shotgunBulletLayers:
-					shoot(mouse_position, bulletSpeed)
 					shoot(mouse_position + bulletSpreadIncrease, bulletSpeed)
 					shoot(mouse_position - bulletSpreadIncrease, bulletSpeed)
 					bulletSpreadIncrease += bulletSpread
@@ -144,7 +143,7 @@ func get_input():
 						shoot(mouse_position, bulletSpeed)
 						yield(get_tree().create_timer(burstDelay), "timeout")
 					bursting = false
-			if !shotgun && !burst:
+			if !burst:
 				shoot(mouse_position, bulletSpeed)
 
 		if (Input.is_action_pressed("reload") && !$ReloadSoundPlayer.playing):
