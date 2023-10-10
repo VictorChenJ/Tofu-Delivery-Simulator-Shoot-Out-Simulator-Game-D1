@@ -6,7 +6,7 @@ func _on_ShotgunPowerup_body_entered(body):
 	if body.is_in_group("players"):
 		body.removeWeapons()
 		body.shotgun = true
-		body.ammo = 12
+		body.ammo = 10
 		var collectionEffectInst = collection_effect.instance()
 		var world = get_tree().current_scene
 		world.add_child(collectionEffectInst)

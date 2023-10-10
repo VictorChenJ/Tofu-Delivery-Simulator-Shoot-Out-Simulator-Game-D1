@@ -62,7 +62,7 @@ var ammo = 6
 var bulletSpeed = 1200
 
 var shotgun = false
-var shotgunBulletLayers = 1
+var shotgunBulletLayers = 2
 var bulletSpread = 5
 
 var burst = false
