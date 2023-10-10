@@ -24,16 +24,3 @@ func _on_delivery_tofu_delivered():
 			var MapSettings = get_node("/root/GlobalVar")
 			MapSettings.AkinaPassed = true
 		get_tree().change_scene("res://Scenes/menus/WinScreen.tscn")
-	pass # Replace with function body.
-
-
-
-
-
-
-#func _on_delivery6_tofu_delivered():
-#	pass # Replace with function body.
-
-
-#func _on_delivery_tofu_delivered():
-#	pass # Replace with function body.
