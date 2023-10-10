@@ -53,8 +53,8 @@ position = Vector2( -291, 143 )
 scale = Vector2( 0.560922, 0.560922 )
 texture = ExtResource( 3 )
 
-[node name="Tutorial3" type="Sprite" parent="."]
-position = Vector2( 864.343, 450.25 )
+[node name="Tutorial3" type="Sprite" parent="CenterContainer/HBoxContainer"]
+position = Vector2( 352.343, 150.25 )
 scale = Vector2( 0.733796, 0.733796 )
 texture = ExtResource( 4 )
 
