@@ -19,22 +19,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 460.0
+margin_left = 450.0
 margin_top = 239.0
-margin_right = 563.0
+margin_right = 573.0
 margin_bottom = 361.0
 custom_constants/separation = 20
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 103.0
+margin_right = 123.0
 margin_bottom = 14.0
-text = "Your Highscore"
+text = "Your time till death"
 align = 1
 valign = 1
 
 [node name="highscore" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_top = 34.0
-margin_right = 103.0
+margin_right = 123.0
 margin_bottom = 48.0
 align = 1
 valign = 1
@@ -42,7 +42,7 @@ script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_top = 68.0
-margin_right = 103.0
+margin_right = 123.0
 margin_bottom = 82.0
 text = "YOU DIED NERD"
 align = 1
@@ -50,19 +50,15 @@ valign = 1
 
 [node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 102.0
-margin_right = 103.0
+margin_right = 123.0
 margin_bottom = 122.0
 text = "Restart"
 
 [node name="TakumiSad" type="VideoPlayer" parent="."]
-anchor_left = 0.23
-anchor_top = 0.347
-anchor_right = 0.23
-anchor_bottom = 0.347
-margin_left = 450.48
-margin_top = 6.8
-margin_right = 742.48
-margin_bottom = 183.8
+margin_left = 686.0
+margin_top = 215.0
+margin_right = 997.0
+margin_bottom = 380.0
 stream = ExtResource( 5 )
 script = ExtResource( 6 )
 
