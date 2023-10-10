@@ -16,4 +16,3 @@ func _on_Tofu_body_entered(body):
 		world.add_child(collectionEffectInst)
 		collectionEffectInst.global_position = global_position
 		queue_free()
-	pass # Replace with function body.
