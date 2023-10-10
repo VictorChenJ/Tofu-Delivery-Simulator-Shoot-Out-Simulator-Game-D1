@@ -64,6 +64,7 @@ var bulletSpeed = 1200
 var shotgun = false
 var shotgunBulletLayers = 2
 var bulletSpread = 5
+var bulletSpreadIncrease = bulletSpread # Increases bullet spread the more shots are fire at the same time
 
 var burst = false
 var burstShots = 3
@@ -129,7 +130,7 @@ func get_input():
 		if Input.is_action_just_pressed("left_click"):
 			mouse_position = rad2deg(get_angle_to(get_global_mouse_position())+rotation)
 			if shotgun:
-				var bulletSpreadIncrease = bulletSpread
+				bulletSpreadIncrease = bulletSpread
 				for n in shotgunBulletLayers:
 					shoot(mouse_position, bulletSpeed)
 					shoot(mouse_position + bulletSpreadIncrease, bulletSpeed)
