@@ -7,6 +7,7 @@ func _on_ShotgunPowerup_body_entered(body):
 		body.removeWeapons()
 		body.shotgun = true
 		body.ammo = 10
+		body.updateAmmoCount()
 		var collectionEffectInst = collection_effect.instance()
 		var world = get_tree().current_scene
 		world.add_child(collectionEffectInst)

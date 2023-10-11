@@ -87,7 +87,7 @@ onready var death_effect = preload("res://Scenes/effects/PlayerDeathEffect.tscn"
 
 func _ready() -> void:
 	connect("body_entered", self, "_on_body_entered")
-	emit_signal("ammo_changed", ammo)
+	updateAmmoCount()
 
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
@@ -272,10 +272,12 @@ func shoot(direction: float, speed: float):
 			get_parent().add_child(new_PlayerBullet)
 			new_PlayerBullet.rotate(deg2rad(direction))
 			$GunShotSoundPlayer.play()
+			emit_signal("ammo_changed", ammo - shootIndex)
 		elif (!$ReloadSoundPlayer.playing):
 			$ReloadSoundPlayer.play()
 			shootIndex = 0
 			emit_signal("ammo_changed", ammo - shootIndex)
+
 
 func removeWeapons():
 	shotgun = false
@@ -295,3 +297,6 @@ func arrowchecker():
 		globals.activeArrow=1
 	else:
 		globals.activeArrow=0
+
+func updateAmmoCount():
+	emit_signal("ammo_changed", ammo)
