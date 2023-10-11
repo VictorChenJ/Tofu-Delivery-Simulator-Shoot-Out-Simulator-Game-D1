@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/PlayerDriver.gd" type="Script" id=1]
 [ext_resource path="res://asset/character/carrotated.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://asset/sounds/Driving.mp3" type="AudioStream" id=10]
 [ext_resource path="res://Scenes/effects/Drifting particles right.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/effects/Drifting particles left.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/characters/AmmoCounter.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 10 )
@@ -126,4 +127,14 @@ rotation = 1.5708
 position = Vector2( -13, 17 )
 rotation = 1.5708
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = -511.0
+margin_top = -301.0
+margin_right = -406.0
+margin_bottom = -258.0
+script = ExtResource( 13 )
+
+[connection signal="ammo_changed" from="." to="CanvasLayer/Label" method="_on_KinematicBody2D_ammo_changed"]
 [connection signal="body_entered" from="Crash" to="." method="_on_Crash_body_entered"]
