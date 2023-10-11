@@ -20,6 +20,7 @@ var tileSpeedModifiers = {
 
 var hp = 15 setget set_hp
 
+signal ammo_changed
 signal hp_changed
 signal died
 signal playerposition
@@ -41,7 +42,7 @@ var steering_angle = 5  # Amount that front wheel turns, in degrees
 var velocity = Vector2.ZERO
 var steer_angle
 
-var originalEnginePower = 1600
+var originalEnginePower = 800
 var engine_power = originalEnginePower  # Forward acceleration force.
 
 var acceleration = Vector2.ZERO
@@ -267,7 +268,8 @@ func shoot(direction: float, speed: float):
 		elif (!$ReloadSoundPlayer.playing):
 			$ReloadSoundPlayer.play()
 			shootIndex = 0
-
+	emit_signal("ammo_changed", ammo - shootIndex)
+	
 func removeWeapons():
 	shotgun = false
 	burst = false
@@ -280,3 +282,4 @@ func driftingparticleeffect():
 	else:
 		driftingparticlesright.emit=1
 		driftingparticlesleft.emit=0
+
