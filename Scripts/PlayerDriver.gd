@@ -41,13 +41,15 @@ var steering_angle = 5  # Amount that front wheel turns, in degrees
 var velocity = Vector2.ZERO
 var steer_angle
 
-var engine_power = 800  # Forward acceleration force.
+var originalEnginePower = 1600
+var engine_power = originalEnginePower  # Forward acceleration force.
 
 var acceleration = Vector2.ZERO
 
 var friction = -0.9
 var drag = -0.0015
-var braking_power = -450
+var originalBreakingPower = -450
+var braking_power = originalBreakingPower
 var max_speed_reverse = 250
 
 var slip_speed = 400  # Speed where traction is reduced
