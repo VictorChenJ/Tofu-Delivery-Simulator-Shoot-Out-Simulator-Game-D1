@@ -82,6 +82,7 @@ onready var death_effect = preload("res://Scenes/effects/PlayerDeathEffect.tscn"
 
 func _ready() -> void:
 	connect("body_entered", self, "_on_body_entered")
+	emit_signal("ammo_changed", ammo)
 
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
