@@ -5,6 +5,10 @@ var dead = false
 #drifting particles
 onready var driftingparticlesleft=$Driftingparticlesleft
 onready var driftingparticlesright=$Driftingparticlesright
+
+
+#funky arrows
+onready var globals= get_node("/root/GlobalVar")
 var driftingParticleDirection=0
 #Tile speed
 var tileSpeedModifiers = {
@@ -90,6 +94,7 @@ func _physics_process(delta):
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
+	arrowchecker()
 
 func apply_friction():
 	if velocity.length() < 5:
@@ -280,3 +285,9 @@ func driftingparticleeffect():
 	else:
 		driftingparticlesright.emit=1
 		driftingparticlesleft.emit=0
+
+func arrowchecker():
+	if tofu>0:
+		globals.activeArrow=1
+	else:
+		globals.activeArrow=0

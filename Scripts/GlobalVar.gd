@@ -2,6 +2,7 @@ extends CanvasLayer
 
 export var AkinaPassed = false
 export var time_passed = ""
+export var activeArrow = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
