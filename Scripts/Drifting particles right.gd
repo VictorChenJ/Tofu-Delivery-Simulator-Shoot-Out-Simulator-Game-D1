@@ -19,7 +19,6 @@ func emitter():
 		sparks.emitting=false
 func _process(delta):
 	emitter()
-	print(emit)
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

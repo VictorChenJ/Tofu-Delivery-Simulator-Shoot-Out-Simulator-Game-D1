@@ -274,5 +274,7 @@ func removeWeapons():
 func driftingparticleeffect():
 	if (driftingParticleDirection==0):
 		driftingparticlesleft.emit=1
+		driftingparticlesright.emit=0
 	else:
 		driftingparticlesright.emit=1
+		driftingparticlesleft.emit=0
