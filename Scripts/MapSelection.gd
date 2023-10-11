@@ -29,5 +29,5 @@ func _on_AkinaLevel_pressed():
 
 
 func _on_ShutokoLevel_pressed():
-	get_tree().change_scene("res://Scenes/Maps/Shutoko.tscn")
+	get_tree().change_scene("res://Scenes/maps/Shutoko.tscn")
 	pass # Replace with function body.
