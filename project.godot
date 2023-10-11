@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:83afab68c34a59256477df46481d193f25427125f5d0b3f5a97fad3efc8e509a
-size 3337
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+[application]
+
+run/main_scene="res://Scenes/menus/StartMenu.tscn"

@@ -207,7 +207,7 @@ func _on_Crash_body_entered(body):
 			$CollisionSoundPlayer.play()
 	if body.is_in_group("enemies"):
 		body.take_damage(1)
-		
+		print("Collided with: " + str(body))
 
 func play_driving_sounds():
 	if(!$DrivingStartupPlayer.playing && drivingStartupSound):
@@ -260,7 +260,7 @@ func update_health():
 #tofu stuff
 func set_tofu(value):
 	tofu += value
-	
+	print(tofu)
 
 #PlayerBullet
 func shoot(direction: float, speed: float):

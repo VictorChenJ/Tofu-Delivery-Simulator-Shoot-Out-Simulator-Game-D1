@@ -10,10 +10,10 @@ func _on_delivery_body_entered(body):
 			body.set_tofu(-1)
 			body.take_damage(-20)
 			emit_signal("tofu_delivered")
-			
+			print("tofu_delivered")
 			var deliveryEffectInst = delivery_effect.instance()
 			var world = get_tree().current_scene
 			world.add_child(deliveryEffectInst)
 			deliveryEffectInst.global_position = global_position
-			
+			print(body.hp)
 			queue_free()
