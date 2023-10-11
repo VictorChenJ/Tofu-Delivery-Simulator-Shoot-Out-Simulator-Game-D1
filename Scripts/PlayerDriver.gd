@@ -41,7 +41,7 @@ var steering_angle = 5  # Amount that front wheel turns, in degrees
 var velocity = Vector2.ZERO
 var steer_angle
 
-var originalEnginePower = 800
+var originalEnginePower = 1600
 var engine_power = originalEnginePower  # Forward acceleration force.
 
 var acceleration = Vector2.ZERO
