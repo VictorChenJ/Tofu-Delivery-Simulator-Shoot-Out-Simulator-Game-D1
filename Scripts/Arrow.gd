@@ -2,7 +2,7 @@ extends Node2D
 
 onready var sprite=$Arrow
 var target_position=null
-
+onready var arrowhider = get_node("/root/GlobalVar")
 
 func _physics_process(delta):
 	var canvas =get_canvas_transform()
@@ -39,10 +39,10 @@ func set_marker_position(bounds : Rect2):
 		
 		sprite.global_position= polar2cartesian(length,displacement.angle())+target_position
 	
-	if bounds.has_point(global_position):
-		hide()
-	else:
+	if !bounds.has_point(global_position)&&arrowhider.activeArrow==0:
 		show()
+	else:
+		hide()
 
 func set_marker_rotation():
 	var spriteangle =(global_position-sprite.global_position).angle()

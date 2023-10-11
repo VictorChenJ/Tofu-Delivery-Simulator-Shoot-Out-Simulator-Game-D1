@@ -5,6 +5,10 @@ var dead = false
 #drifting particles
 onready var driftingparticlesleft=$Driftingparticlesleft
 onready var driftingparticlesright=$Driftingparticlesright
+
+
+#funky arrows
+onready var globals= get_node("/root/GlobalVar")
 var driftingParticleDirection=0
 #Tile speed
 var tileSpeedModifiers = {
@@ -20,7 +24,6 @@ var tileSpeedModifiers = {
 
 var hp = 15 setget set_hp
 
-signal ammo_changed
 signal hp_changed
 signal died
 signal playerposition
@@ -42,7 +45,7 @@ var steering_angle = 5  # Amount that front wheel turns, in degrees
 var velocity = Vector2.ZERO
 var steer_angle
 
-var originalEnginePower = 800
+var originalEnginePower = 1600
 var engine_power = originalEnginePower  # Forward acceleration force.
 
 var acceleration = Vector2.ZERO
@@ -92,6 +95,7 @@ func _physics_process(delta):
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
+	arrowchecker()
 
 func apply_friction():
 	if velocity.length() < 5:
@@ -269,8 +273,7 @@ func shoot(direction: float, speed: float):
 		elif (!$ReloadSoundPlayer.playing):
 			$ReloadSoundPlayer.play()
 			shootIndex = 0
-	emit_signal("ammo_changed", ammo - shootIndex)
-	
+
 func removeWeapons():
 	shotgun = false
 	burst = false
@@ -284,3 +287,8 @@ func driftingparticleeffect():
 		driftingparticlesright.emit=1
 		driftingparticlesleft.emit=0
 
+func arrowchecker():
+	if tofu>0:
+		globals.activeArrow=1
+	else:
+		globals.activeArrow=0
