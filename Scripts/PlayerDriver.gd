@@ -2,7 +2,10 @@ extends KinematicBody2D
 
 var dead = false
 
-onready var driftingparticles=$Driftingparticles
+#drifting particles
+onready var driftingparticlesleft=$Driftingparticlesleft
+onready var driftingparticlesright=$Driftingparticlesright
+var driftingParticleDirection=0
 #Tile speed
 var tileSpeedModifiers = {
 	0: 1.0,  
@@ -105,8 +108,10 @@ func get_input():
 	if dead == false:
 		var turn = 0
 		if Input.is_action_pressed("steer_right"):
+			driftingParticleDirection=0
 			turn += 1
 		if Input.is_action_pressed("steer_left"):
+			driftingParticleDirection=1
 			turn -= 1
 		steer_angle = turn * steering_angle
 		if Input.is_action_pressed("godmode"):
@@ -167,12 +172,13 @@ func calculate_steering(delta):
 	if velocity.length() > slip_speed:
 		traction = traction_fast
 	if (drifting == true):
-		driftingparticles.emit=1
+		driftingparticleeffect()
 		rear_wheel += velocity.rotated(steer_angle) * delta
 		front_wheel -= velocity.rotated(steer_angle) * delta
 		new_heading = (front_wheel - rear_wheel).normalized()
 	else:
-		driftingparticles.emit=0
+		driftingparticlesleft.emit=0
+		driftingparticlesright.emit=0
 		rear_wheel -= velocity * delta
 		front_wheel -= velocity.rotated(steer_angle) * delta
 		new_heading = (front_wheel - rear_wheel).normalized()
@@ -264,3 +270,9 @@ func removeWeapons():
 	shotgun = false
 	burst = false
 	ammo = trueAmmo
+	
+func driftingparticleeffect():
+	if (driftingParticleDirection==0):
+		driftingparticlesleft.emit=1
+	else:
+		driftingparticlesright.emit=1
