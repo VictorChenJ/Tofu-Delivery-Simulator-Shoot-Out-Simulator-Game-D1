@@ -12,7 +12,7 @@
 [ext_resource path="res://asset/sounds/Driving.mp3" type="AudioStream" id=10]
 [ext_resource path="res://Scenes/effects/Drifting particles right.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/effects/Drifting particles left.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/characters/AmmoCounter.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/AmmoCounter.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 10 )
@@ -130,10 +130,10 @@ rotation = 1.5708
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-margin_left = -511.0
-margin_top = -301.0
-margin_right = -406.0
-margin_bottom = -258.0
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 256.0
+margin_bottom = 116.0
 script = ExtResource( 13 )
 
 [connection signal="ammo_changed" from="." to="CanvasLayer/Label" method="_on_KinematicBody2D_ammo_changed"]
