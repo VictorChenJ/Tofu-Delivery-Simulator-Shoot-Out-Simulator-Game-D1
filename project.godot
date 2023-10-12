@@ -10,12 +10,10 @@ config_version=4
 
 [application]
 
-<<<<<<< HEAD
-run/main_scene="res://Scenes/menus/StartMenu.tscn"
-=======
 config/name="Tofu Delivery Shootout"
-run/main_scene="res://Scenes/maps/Shutoko.tscn"
+run/main_scene="res://Scenes/menus/StartMenu.tscn"
 config/icon="res://asset/icon.png"
+<<<<<<<HEADrun/main_scene="res://Scenes/menus/StartMenu.tscn"
 
 [autoload]
 
@@ -80,4 +78,3 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 environment/default_environment="res://default_env.tres"
->>>>>>> parent of ef7b008 (Let's try again)
