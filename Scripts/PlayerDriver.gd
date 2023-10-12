@@ -165,6 +165,7 @@ func get_input():
 
 		if (Input.is_action_pressed("reload") && !$ReloadSoundPlayer.playing):
 			shootIndex = 0
+			updateAmmoCount()
 			$ReloadSoundPlayer.play()
 		if (Input.is_action_pressed("handbrake") && velocity.x != 0):
 			drifting = true
@@ -272,11 +273,10 @@ func shoot(direction: float, speed: float):
 			get_parent().add_child(new_PlayerBullet)
 			new_PlayerBullet.rotate(deg2rad(direction))
 			$GunShotSoundPlayer.play()
-			emit_signal("ammo_changed", ammo - shootIndex)
 		elif (!$ReloadSoundPlayer.playing):
 			$ReloadSoundPlayer.play()
 			shootIndex = 0
-			emit_signal("ammo_changed", ammo - shootIndex)
+		emit_signal("ammo_changed", ammo - shootIndex)
 
 
 func removeWeapons():
