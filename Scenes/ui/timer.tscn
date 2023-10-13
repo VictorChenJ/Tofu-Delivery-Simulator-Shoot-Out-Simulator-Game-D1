@@ -1,12 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Label.gd" type="Script" id=1]
+[ext_resource path="res://asset/text fonts/PixeloidMono-d94EV.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+extra_spacing_space = -10
+font_data = ExtResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Label" type="Label" parent="."]
-margin_left = 484.0
-margin_right = 540.0
-margin_bottom = 14.0
+anchor_left = 0.483
+anchor_right = 0.483
+margin_left = -52.592
+margin_top = 7.0
+margin_right = 53.408
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
 text = "00:00:00"
 script = ExtResource( 1 )
