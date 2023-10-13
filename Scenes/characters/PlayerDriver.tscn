@@ -131,12 +131,12 @@ rotation = 1.5708
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-anchor_left = 0.036
-anchor_top = 0.893
-anchor_right = 0.25
-anchor_bottom = 0.975
-margin_left = 0.135998
-margin_top = 0.199951
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 58.0
+margin_top = -85.0
+margin_right = 277.0
+margin_bottom = -36.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 14 )
 script = ExtResource( 13 )
