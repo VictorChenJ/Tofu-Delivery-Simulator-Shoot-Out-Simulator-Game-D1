@@ -2,16 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/index.apple-touch-icon.png-ce08e325ae900d7daeaaf5656f01c76d.stex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://HTML/index.apple-touch-icon.png"
-dest_files=[ "res://.import/index.apple-touch-icon.png-ce08e325ae900d7daeaaf5656f01c76d.stex" ]
-
 [params]
 
 compress/mode=0
