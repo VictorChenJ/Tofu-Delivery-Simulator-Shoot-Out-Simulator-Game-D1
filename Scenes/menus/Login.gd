@@ -25,15 +25,28 @@ func _on_Login_button_pressed():
 	if $Username.text==checkusername&&$Password.text==checkpassword:
 		get_tree().change_scene("res://Scenes/menus/StartMenu.tscn")
 	else:
-		$Login_failed.show()
-		$Login_failed/Timer.start(1)
+		$Popup/Label.text="login failed"
+		visPopup()
+
 	pass # Replace with function body.
 
 func _on_Create_button_pressed():
-	checkusername=$Username.text
-	checkpassword=$Password.text
+	if checkusername!=$Username.text:
+		checkusername=$Username.text
+		checkpassword=$Password.text
+		$Popup/Label.text="Created account"
+		visPopup()
+	else:
+		$Popup/Label.text="Username is taken"
+		visPopup()
 	pass # Replace with function body.
 	
 func _on_Timer_timeout():
-	$Login_failed.hide()
+	$Popup.hide()
 	pass # Replace with function body.
+
+func visPopup():
+	$Popup.show()
+	$Popup/Timer.start(1)
+	pass
+
