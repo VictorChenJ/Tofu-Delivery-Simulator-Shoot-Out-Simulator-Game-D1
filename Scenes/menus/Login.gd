@@ -24,9 +24,16 @@ func _ready():
 func _on_Login_button_pressed():
 	if $Username.text==checkusername&&$Password.text==checkpassword:
 		get_tree().change_scene("res://Scenes/menus/StartMenu.tscn")
+	else:
+		$Login_failed.show()
+		$Login_failed/Timer.start(1)
 	pass # Replace with function body.
 
 func _on_Create_button_pressed():
 	checkusername=$Username.text
 	checkpassword=$Password.text
+	pass # Replace with function body.
+	
+func _on_Timer_timeout():
+	$Login_failed.hide()
 	pass # Replace with function body.
