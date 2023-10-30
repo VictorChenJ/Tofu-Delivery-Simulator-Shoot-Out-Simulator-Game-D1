@@ -9,7 +9,8 @@ var login=false
 # var a = 2
 # var b = "text"
 
-
+var database := PostgreSQLClient.new()
+#onready var show_data = $ShowData
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -24,6 +25,7 @@ const DATABASE = "glzyjppg" # Database name
 enum sql_types {
 	INSERT,
 	SELECT,
+	CHECKNAME,
 	UPDATE,
 	DELETE,	
 }
@@ -52,36 +54,34 @@ func _on_Login_button_pressed():
 
 	pass # Replace with function body.
 
+signal usernamevalidsignal
+var usernamevalid=false
 func _on_Create_button_pressed():
-	if checkusername!=$Username.text:
-		checkusername=$Username.text
+	checkusername=$Username.text
+	sql_type = sql_types.CHECKNAME
+	connectDB()
+func _on_usernamesignal():	
+	if usernamevalid:	
 		checkpassword=$Password.text
 		$Popup/Label.text="Created account"
 		sql_type = sql_types.INSERT
 		connectDB()
+	
 		visPopup()
 	else:
 		$Popup/Label.text="Username is taken"
 		visPopup()
 	pass # Replace with function body.
 	
+
+	
 func _on_Timer_timeout():
 	$Popup.hide()
 	pass # Replace with function body.
-
 func visPopup():
 	$Popup.show()
 	$Popup/Timer.start(1)
 	pass
-
-
-
-var database := PostgreSQLClient.new()
-#onready var show_data = $ShowData
-
-
-
-
 func _authentication_error(error_object: Dictionary) -> void:
 	prints("Error connection to database:", error_object["message"])
 	
@@ -96,7 +96,6 @@ func _exit_tree() -> void:
 
 #Call database function
 func _execAll():
-	
 	match sql_type:
 		sql_types.INSERT:
 			_execInsert()
@@ -106,17 +105,17 @@ func _execAll():
 			_execUpdate()
 		sql_types.DELETE:
 			_execDelete()
+		sql_types.CHECKNAME:
+			_execCheckname()
 			
-
 #Insert, Select, Update & Delete : setup data & SQL
 func _execInsert():
 	var data = [[str(checkusername),str(checkpassword)]]
-	insertToDB("BEGIN; INSERT INTO test ('username', 'password') VALUES ('%s','%s'); COMMIT;", data)
-	_on_ButtonSelect_pressed()
-
+	print(data)
+	insertToDB('BEGIN; INSERT INTO test ("username", "password") VALUES'+ " ('%s','%s'); COMMIT;", data)
 func _execSelect():
 	
-	var data = selectFromDB("BEGIN; SELECT * FROM players; COMMIT;")
+	var data = selectFromDB("BEGIN; SELECT * FROM test; COMMIT;")
 	var return_data = ""
 	
 	for d in data:
@@ -126,21 +125,31 @@ func _execSelect():
 		return_data += "\n"
 		
 	#show_data.set_text(return_data)
-
+func _execCheckname():
+	var data = selectFromDB("BEGIN; SELECT * FROM test; COMMIT;")
+	#print("d")
+	usernamevalid=true
+	if not data.empty():
+		for d in data:
+			print(str(d[0]))
+			if str(d[0])==checkusername:
+				usernamevalid=false
+				break
+	emit_signal("usernamevalidsignal")
+	
 func _execUpdate():
 	var data = [[str($PlayerName.get_text()), $Score.get_text(), $IDPlayer.get_text()]]
 	updateToDB("BEGIN; UPDATE players SET player_name = '%s', score = %s WHERE id = %s; COMMIT;", data)
-	_on_ButtonSelect_pressed()
+	
 	
 func _execDelete():
 	var data = [[$IDPlayer.get_text()]]
 	deleteFromDB("BEGIN; DELETE FROM players WHERE id = %s; COMMIT;", data)
-	_on_ButtonSelect_pressed()
+	
 
 #Insert, Select, Update & Delete executes
 func insertToDB(sql: String, data: Array):
 	var _sql
-	
 	for d in data:
 		_sql = sql % d
 		database.execute(_sql)
@@ -149,7 +158,6 @@ func insertToDB(sql: String, data: Array):
 	database.close()
 
 func selectFromDB(sql:String) -> Array:
-	
 	var datas := database.execute(sql)
 	var rows = datas[1].data_row
 	
@@ -179,19 +187,3 @@ func deleteFromDB(sql: String, data: Array):
 	database.close()
 
 
-#Button event handlers
-func _on_ButtonInsert_pressed():
-	sql_type = sql_types.INSERT
-	connectDB()
-
-func _on_ButtonSelect_pressed():
-	sql_type = sql_types.SELECT
-	connectDB()
-
-func _on_ButtonUpdate_pressed():
-	sql_type = sql_types.UPDATE
-	connectDB()
-
-func _on_ButtonDelete_pressed():
-	sql_type = sql_types.DELETE
-	connectDB()

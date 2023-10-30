@@ -74,6 +74,7 @@ text = "Failed to log in"
 
 [node name="Timer" type="Timer" parent="Popup"]
 
+[connection signal="usernamevalidsignal" from="." to="." method="_on_usernamesignal"]
 [connection signal="pressed" from="Login_button" to="." method="_on_Login_button_pressed"]
 [connection signal="pressed" from="Create_button" to="." method="_on_Create_button_pressed"]
 [connection signal="timeout" from="Popup/Timer" to="." method="_on_Timer_timeout"]
