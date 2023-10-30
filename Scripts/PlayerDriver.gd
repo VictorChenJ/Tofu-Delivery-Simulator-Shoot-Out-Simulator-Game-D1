@@ -83,6 +83,9 @@ var burstShots = 3
 var burstDelay = 0.1
 var bursting = false # Is the player shooting with burst currently?
 
+var nuke = false
+var nukeBullets = 100
+
 onready var death_effect = preload("res://Scenes/effects/PlayerDeathEffect.tscn")
 
 func _ready() -> void:
@@ -153,6 +156,9 @@ func get_input():
 					shoot(mouse_position + bulletSpreadIncrease, bulletSpeed)
 					shoot(mouse_position - bulletSpreadIncrease, bulletSpeed)
 					bulletSpreadIncrease += bulletSpread
+			if nuke:
+				for n in nukeBullets:
+					shoot(mouse_position, bulletSpeed)
 			if burst:
 				if !bursting:
 					for n in burstShots:
@@ -282,6 +288,7 @@ func shoot(direction: float, speed: float):
 func removeWeapons():
 	shotgun = false
 	burst = false
+	nuke = false
 	ammo = trueAmmo
 	
 func driftingparticleeffect():
