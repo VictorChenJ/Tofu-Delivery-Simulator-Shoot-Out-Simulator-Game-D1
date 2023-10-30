@@ -26,6 +26,7 @@ enum sql_types {
 	INSERT,
 	SELECT,
 	CHECKNAME,
+	PASSWORD,
 	UPDATE,
 	DELETE,	
 }
@@ -44,9 +45,17 @@ func connectDB():
 
 
 
-
+signal passwordchecker
+var passwordvalid=false
 func _on_Login_button_pressed():
-	if $Username.text==checkusername&&$Password.text==checkpassword:
+	checkusername=$Username.text
+	checkpassword=$Password.text
+	sql_type= sql_types.PASSWORD
+	connectDB()
+	
+func _on_passwordchecker():
+	print("yes")
+	if passwordvalid==true:
 		get_tree().change_scene("res://Scenes/menus/StartMenu.tscn")
 	else:
 		$Popup/Label.text="login failed"
@@ -72,9 +81,7 @@ func _on_usernamesignal():
 		$Popup/Label.text="Username is taken"
 		visPopup()
 	pass # Replace with function body.
-	
 
-	
 func _on_Timer_timeout():
 	$Popup.hide()
 	pass # Replace with function body.
@@ -107,6 +114,8 @@ func _execAll():
 			_execDelete()
 		sql_types.CHECKNAME:
 			_execCheckname()
+		sql_types.PASSWORD:
+			_execPassword()
 			
 #Insert, Select, Update & Delete : setup data & SQL
 func _execInsert():
@@ -136,6 +145,19 @@ func _execCheckname():
 				usernamevalid=false
 				break
 	emit_signal("usernamevalidsignal")
+	
+func _execPassword():
+	var data = selectFromDB("BEGIN; SELECT * FROM test; COMMIT;")
+	#print("d")
+	if not data.empty():
+		
+		for d in data:
+			if str(d[0])==checkusername && str(d[1])==checkpassword:
+				
+				passwordvalid=true
+				break
+				
+	emit_signal("passwordchecker")
 	
 func _execUpdate():
 	var data = [[str($PlayerName.get_text()), $Score.get_text(), $IDPlayer.get_text()]]
