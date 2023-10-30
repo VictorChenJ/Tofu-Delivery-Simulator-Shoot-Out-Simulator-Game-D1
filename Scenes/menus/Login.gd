@@ -137,7 +137,6 @@ func _execDelete():
 	deleteFromDB("BEGIN; DELETE FROM players WHERE id = %s; COMMIT;", data)
 	_on_ButtonSelect_pressed()
 
-
 #Insert, Select, Update & Delete executes
 func insertToDB(sql: String, data: Array):
 	var _sql
