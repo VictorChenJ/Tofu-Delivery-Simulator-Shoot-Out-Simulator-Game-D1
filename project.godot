@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Object",
+"class": "PostgreSQLClient",
+"language": "GDScript",
+"path": "res://Scripts/PostgreSQLClient.gd"
+} ]
+_global_script_class_icons={
+"PostgreSQLClient": ""
+}
+
 [application]
 
 config/name="Tofu Delivery Shootout"
