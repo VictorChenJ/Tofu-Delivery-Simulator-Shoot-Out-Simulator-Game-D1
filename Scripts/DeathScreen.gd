@@ -96,8 +96,7 @@ func deleteFromDB(sql: String, data: Array):
 
 	database.close()
 
-
-func _on_RestartButton_pressed():
+func _ready():
 	var MapSettings= get_node("/root/GlobalVar")
 	username=MapSettings.Username
 	if MapSettings.AkinaPassed==true:
@@ -110,6 +109,6 @@ func _on_RestartButton_pressed():
 		MapSettings.ShutokoPassed=false
 		time=MapSettings.ShutokoTime
 		connectDB()
-	
-	
+
+func _on_RestartButton_pressed():
 	get_tree().change_scene("res://Scenes/menus/StartMenu.tscn")
