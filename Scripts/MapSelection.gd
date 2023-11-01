@@ -6,7 +6,7 @@ func _ready():
 	var MapSettings= get_node("/root/GlobalVar")
 	var button = get_node("CenterContainer/VBoxContainer/ShutokoLevel")
 	button.disabled = true
-	if(MapSettings.AkinaPassed==true):
+	if(MapSettings.OAkinaPassed==true):
 		button.disabled=false
 	pass # Replace with function body.
 
