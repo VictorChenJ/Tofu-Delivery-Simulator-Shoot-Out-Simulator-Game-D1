@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Nitro power up.png-ff16616f2b48a94a47716eb4291ce374.stex"
+path="res://.import/NitroPowerUp.png-5f048db161ecfc61ab1042e9ce048423.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/collectables/Nitro power up.png"
-dest_files=[ "res://.import/Nitro power up.png-ff16616f2b48a94a47716eb4291ce374.stex" ]
+source_file="res://asset/collectables/NitroPowerUp.png"
+dest_files=[ "res://.import/NitroPowerUp.png-5f048db161ecfc61ab1042e9ce048423.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Burst power up.png-15edf078a15ee4c6dace307dee28792f.stex"
+path="res://.import/penisBullet.png-da745d1f1435fc923f924ae729b29460.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/collectables/Burst power up.png"
-dest_files=[ "res://.import/Burst power up.png-15edf078a15ee4c6dace307dee28792f.stex" ]
+source_file="res://asset/misc/penisBullet.png"
+dest_files=[ "res://.import/penisBullet.png-da745d1f1435fc923f924ae729b29460.stex" ]
 
 [params]
 

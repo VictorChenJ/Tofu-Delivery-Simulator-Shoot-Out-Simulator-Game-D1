@@ -8,6 +8,7 @@ func _on_BurstPowerup_body_entered(body):
 		body.burst = true
 		body.ammo = 12
 		body.updateAmmoCount()
+		body.changeAmmoSprite("burst")
 		var collectionEffectInst = collection_effect.instance()
 		var world = get_tree().current_scene
 		world.add_child(collectionEffectInst)

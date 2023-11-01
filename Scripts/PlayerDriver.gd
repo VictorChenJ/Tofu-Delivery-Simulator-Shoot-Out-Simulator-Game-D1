@@ -284,11 +284,11 @@ func shoot(direction: float, speed: float):
 			shootIndex = 0
 		emit_signal("ammo_changed", ammo - shootIndex)
 
-
 func removeWeapons():
 	shotgun = false
 	burst = false
 	nuke = false
+	changeAmmoSprite("pistol")
 	ammo = trueAmmo
 	
 func driftingparticleeffect():
@@ -307,3 +307,11 @@ func arrowchecker():
 
 func updateAmmoCount():
 	emit_signal("ammo_changed", ammo)
+
+func changeAmmoSprite(sprite: String):
+	if sprite == "shotgun":
+		$CanvasLayer/AmmoSprite.texture = load("res://asset/collectables/ShotgunPowerUp.png")
+	if sprite == "burst":
+		$CanvasLayer/AmmoSprite.texture = load("res://asset/collectables/BurstPowerUp.png")
+	if sprite == "pistol":
+		$CanvasLayer/AmmoSprite.texture = load("res://asset/misc/penisBullet.png")

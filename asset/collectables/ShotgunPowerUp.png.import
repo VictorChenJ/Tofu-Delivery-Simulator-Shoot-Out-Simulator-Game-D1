@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/penis bullet.png-788c21bcbd918c0077aa370ce09203b9.stex"
+path="res://.import/ShotgunPowerUp.png-d6a9b5c999666527fd8725210ca626fc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/misc/penis bullet.png"
-dest_files=[ "res://.import/penis bullet.png-788c21bcbd918c0077aa370ce09203b9.stex" ]
+source_file="res://asset/collectables/ShotgunPowerUp.png"
+dest_files=[ "res://.import/ShotgunPowerUp.png-d6a9b5c999666527fd8725210ca626fc.stex" ]
 
 [params]
 
