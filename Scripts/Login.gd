@@ -9,13 +9,14 @@ var login=false
 # var a = 2
 # var b = "text"
 
-var database := PostgreSQLClient.new()
+
 #onready var show_data = $ShowData
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 #func _physics_process(delta):
 #	pass
+var database := PostgreSQLClient.new()
 const USER = "glzyjppg"
 const PASSWORD = "AZ_Or2WXxqCS5WPFLDQ0WnKmFbLG2Fvx"
 const HOST = "cornelius.db.elephantsql.com"
@@ -27,12 +28,9 @@ enum sql_types {
 	SELECT,
 	CHECKNAME,
 	PASSWORD,
-	UPDATE,
-	DELETE,	
 }
 
 var sql_type = -1
-
 
 func connectDB():
 	var _error := database.connect("connection_established", self, "_execAll")
@@ -42,8 +40,6 @@ func connectDB():
 	_error = database.connect_to_host("postgresql://%s:%s@%s:%d/%s" % [USER, PASSWORD, HOST, PORT, DATABASE])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-
-
 
 signal passwordchecker
 var passwordvalid=false
@@ -107,10 +103,6 @@ func _execAll():
 			_execInsert()
 		sql_types.SELECT:
 			_execSelect()
-		sql_types.UPDATE:
-			_execUpdate()
-		sql_types.DELETE:
-			_execDelete()
 		sql_types.CHECKNAME:
 			_execCheckname()
 		sql_types.PASSWORD:
@@ -119,8 +111,9 @@ func _execAll():
 #Insert, Select, Update & Delete : setup data & SQL
 func _execInsert():
 	var data = [[str(checkusername),str(checkpassword)]]
-	print(data)
+	#print(data)
 	insertToDB('BEGIN; INSERT INTO test ("username", "password") VALUES'+ " ('%s','%s'); COMMIT;", data)
+
 func _execSelect():
 	
 	var data = selectFromDB("BEGIN; SELECT * FROM test; COMMIT;")
@@ -160,15 +153,7 @@ func _execPassword():
 				
 	emit_signal("passwordchecker")
 	
-func _execUpdate():
-	var data = [[str($PlayerName.get_text()), $Score.get_text(), $IDPlayer.get_text()]]
-	updateToDB("BEGIN; UPDATE players SET player_name = '%s', score = %s WHERE id = %s; COMMIT;", data)
-	
-	
-func _execDelete():
-	var data = [[$IDPlayer.get_text()]]
-	deleteFromDB("BEGIN; DELETE FROM players WHERE id = %s; COMMIT;", data)
-	
+
 
 #Insert, Select, Update & Delete executes
 func insertToDB(sql: String, data: Array):
@@ -188,25 +173,5 @@ func selectFromDB(sql:String) -> Array:
 	
 	return rows
 
-func updateToDB(sql: String, data: Array):
-	var _sql
-	
-	for d in data:
-		_sql = sql % d
-		database.execute(_sql)
-		print(_sql)
-
-	database.close()
-
-func deleteFromDB(sql: String, data: Array):
-	#var datas
-	var _sql
-	
-	for d in data:
-		_sql = sql % d
-		database.execute(_sql)
-		print(_sql)
-
-	database.close()
 
 

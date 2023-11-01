@@ -52,7 +52,8 @@ func _execLeaderboardAkina():
 	var data = selectFromDB("BEGIN; SELECT * FROM test ORDER BY "+ '"scoreAkina"'+ "ASC; COMMIT;")
 	var return_data = {}
 	var count=0
-	print(data)
+	#print(data)
+
 	for d in data:
 		var newdata={"username": d[0], "score": d[2]}
 		return_data[count]=newdata
@@ -66,7 +67,7 @@ func _execLeaderboardShutoko():
 	var data = selectFromDB("BEGIN; SELECT * FROM test ORDER BY "+ '"scoreShutoko"'+ "ASC; COMMIT;")
 	var return_data = {}
 	var count=0
-	print(data)
+	#print(data)
 	for d in data:
 		var newdata={"username": d[0], "score": d[3]}
 		return_data[count]=newdata

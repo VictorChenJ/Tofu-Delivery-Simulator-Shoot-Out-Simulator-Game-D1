@@ -1,13 +1,13 @@
 extends Control
 onready var MapSettings= get_node("/root/GlobalVar")
 
-func _ready():
-	print(MapSettings.leaderboard)
+#func _ready():
+#	print(MapSettings.leaderboard)
 	
 func _on_button_press():
 	get_node(".").hide()
 	var children = get_node("VBoxContainer")
-	print(MapSettings.leaderboard)
+	#print(MapSettings.leaderboard)
 	for i in children.get_child_count():
 		if i+1>MapSettings.leaderboard.size():
 			break
