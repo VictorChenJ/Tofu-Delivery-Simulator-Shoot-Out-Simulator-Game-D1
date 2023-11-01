@@ -14,7 +14,7 @@ func _ready():
 func _draw():
 	pass
 func hpamount(hp):
-	print("cheeese " + hp)
+	#print("cheeese " + hp)
 	get_node("/root/MarginContainer/NinePatchRect/label").text=hp
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

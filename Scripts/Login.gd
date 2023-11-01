@@ -54,7 +54,7 @@ func _on_Login_button_pressed():
 	connectDB()
 	
 func _on_passwordchecker():
-	print("yes")
+	#print("yes")
 	if passwordvalid==true:
 		var MapSettings= get_node("/root/GlobalVar")
 		MapSettings.Username = checkusername
@@ -63,7 +63,6 @@ func _on_passwordchecker():
 		$Popup/Label.text="login failed"
 		visPopup()
 
-	pass # Replace with function body.
 
 signal usernamevalidsignal
 var usernamevalid=false
@@ -82,15 +81,13 @@ func _on_usernamesignal():
 	else:
 		$Popup/Label.text="Username is taken"
 		visPopup()
-	pass # Replace with function body.
 
 func _on_Timer_timeout():
 	$Popup.hide()
-	pass # Replace with function body.
 func visPopup():
 	$Popup.show()
 	$Popup/Timer.start(1)
-	pass
+
 func _authentication_error(error_object: Dictionary) -> void:
 	prints("Error connection to database:", error_object["message"])
 	
@@ -132,7 +129,7 @@ func _execSelect():
 	for d in data:
 		for n in d.size():
 			return_data += str(d[n]) + "\t"
-			print(d[n])
+			#print(d[n])
 		return_data += "\n"
 		
 	#show_data.set_text(return_data)
@@ -142,7 +139,7 @@ func _execCheckname():
 	usernamevalid=true
 	if not data.empty():
 		for d in data:
-			print(str(d[0]))
+			#print(str(d[0]))
 			if str(d[0])==checkusername:
 				usernamevalid=false
 				break

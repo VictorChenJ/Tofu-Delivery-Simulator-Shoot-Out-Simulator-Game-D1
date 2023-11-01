@@ -6,4 +6,4 @@ func _ready():
 func _on_KinematicBody2D_hp_changed(new_hp):
 	var progress_bar = $HealthBar  # Replace with your actual progress bar path
 	progress_bar.value = new_hp
-	print("hej")
+	#print("hej")

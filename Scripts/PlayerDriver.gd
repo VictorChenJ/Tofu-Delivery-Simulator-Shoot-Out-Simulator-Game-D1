@@ -129,6 +129,7 @@ func get_input():
 		steer_angle = turn * steering_angle
 		if Input.is_action_pressed("godmode"):
 			hp = 10000;
+			
 		if Input.is_action_pressed("accelerate"):
 			if(!drifting):
 				acceleration = transform.x * engine_power
@@ -213,7 +214,7 @@ func _on_Crash_body_entered(body):
 			$CollisionSoundPlayer.play()
 	if body.is_in_group("enemies"):
 		body.take_damage(1)
-		print("Collided with: " + str(body))
+		#print("Collided with: " + str(body))
 
 func play_driving_sounds():
 	if(!$DrivingStartupPlayer.playing && drivingStartupSound):
