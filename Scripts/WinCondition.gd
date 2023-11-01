@@ -15,11 +15,13 @@ func _on_delivery_tofu_delivered():
 	if winvar==wincon:
 		if(get_tree().current_scene.filename=="res://Scenes/maps/Akina.tscn"):
 			var MapSettings = get_node("/root/GlobalVar")
-			MapSettings.AkinaTime = MapSettings.time_passed
+			if MapSettings.AkinaTime > MapSettings.time_passed:
+				MapSettings.AkinaTime = MapSettings.time_passed
 			MapSettings.AkinaPassed=true
 			MapSettings.OAkinaPassed=true
 		if(get_tree().current_scene.filename=="res://Scenes/maps/Shutoko.tscn"):
 			var MapSettings = get_node("/root/GlobalVar")
-			MapSettings.ShutokoTime = MapSettings.time_passed
+			if MapSettings.ShutokoTime > MapSettings.time_passed:
+				MapSettings.ShutokoTime = MapSettings.time_passed
 			MapSettings.ShutokoPassed=true
 		get_tree().change_scene("res://Scenes/menus/WinScreen.tscn")

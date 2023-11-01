@@ -155,10 +155,12 @@ func _execPassword():
 		
 		for d in data:
 			if str(d[0])==checkusername && str(d[1])==checkpassword:
+				var MapSettings= get_node("/root/GlobalVar")
 				if is_instance_valid(d[2]):
-					var MapSettings= get_node("/root/GlobalVar")
 					MapSettings.OAkinaPassed=true
-									
+					MapSettings.AkinaTime=(d[2])
+				if is_instance_valid(d[3]):
+					MapSettings.ShutokoTime=(d[2])				
 				passwordvalid=true
 				break
 				
