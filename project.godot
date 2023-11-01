@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Tofu Delivery Shootout"
-run/main_scene="res://Scenes/menus/Leader_board.tscn"
+run/main_scene="res://Scenes/menus/Login.tscn"
 config/icon="res://asset/icon.png"
 <<<<<<<HEADrun/main_scene="res://Scenes/menus/StartMenu.tscn"
 
