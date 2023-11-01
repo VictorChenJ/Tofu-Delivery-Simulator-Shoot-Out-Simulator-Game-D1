@@ -56,6 +56,8 @@ func _on_Login_button_pressed():
 func _on_passwordchecker():
 	print("yes")
 	if passwordvalid==true:
+		var MapSettings= get_node("/root/GlobalVar")
+		MapSettings.Username = checkusername
 		get_tree().change_scene("res://Scenes/menus/StartMenu.tscn")
 	else:
 		$Popup/Label.text="login failed"
@@ -153,7 +155,10 @@ func _execPassword():
 		
 		for d in data:
 			if str(d[0])==checkusername && str(d[1])==checkpassword:
-				
+				if is_instance_valid(d[2]):
+					var MapSettings= get_node("/root/GlobalVar")
+					MapSettings.OAkinaPassed=true
+									
 				passwordvalid=true
 				break
 				
