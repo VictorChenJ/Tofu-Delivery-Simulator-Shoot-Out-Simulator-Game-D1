@@ -5,7 +5,7 @@ func _ready():
 	attack_speed = 0.005
 	speed = 150
 	
-func _process(delta):
+func _physics_process(delta):
 	timer += attack_speed
 	if player:
 		_on_Player_playerposition(player.position)

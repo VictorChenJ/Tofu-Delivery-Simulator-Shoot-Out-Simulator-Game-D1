@@ -31,6 +31,13 @@ func _physics_process(delta):
 	if player:
 		motion = position.direction_to(player.position) * speed
 		motion = move_and_slide(motion)
+	timer += attack_speed
+	if player:
+		_on_Player_playerposition(player.position)
+		$Sprite.rotation = get_angle_to(player.position)
+		if timer >= time_interval:
+			shoot(plpos, 400)
+			timer = 0
 
 # Bullet
 func shoot(direction: float, speed: float):
@@ -41,15 +48,6 @@ func shoot(direction: float, speed: float):
 	new_bullet.rotate(deg2rad(direction))
 	new_bullet.damage = damage
 	$GunshotSoundPlayer.play()
-
-func _process(delta):
-	timer += attack_speed
-	if player:
-		_on_Player_playerposition(player.position)
-		$Sprite.rotation = get_angle_to(player.position)
-		if timer >= time_interval:
-			shoot(plpos, 400)
-			timer = 0
 
 func _on_Player_playerposition(val):
 	plpos = rad2deg(get_angle_to(val))
@@ -63,8 +61,6 @@ func _on_Area2D_body_exited(body):
 	if body.is_in_group("players") and body == player:
 		print("exit")
 		player = null
-
-
 
 # Enemy health
 func take_damage(dmg):

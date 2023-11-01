@@ -5,5 +5,5 @@ func _ready():
 	attack_speed = 50
 	speed = 100
 
-func _process(delta):
+func _physics_process(delta):
 	rotate(1.5)
