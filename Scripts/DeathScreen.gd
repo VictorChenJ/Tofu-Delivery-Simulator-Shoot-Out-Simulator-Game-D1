@@ -54,11 +54,13 @@ func _execSelect():
 	#show_data.set_text(return_data)
 	
 func _execUpdateAkina():
+	print("akina")
 	var data = [[str(time), str(username)]]
 	print(data)
 	updateToDB("BEGIN; UPDATE test SET " + '"scoreAkina"' + " = '%s' WHERE " + '"username"'+" = '%s'; COMMIT;", data)
 	
 func _execUpdateShutoko():
+	print("shutoko")
 	var data = [[str(time),str( username)]]
 	print(data)
 	updateToDB("BEGIN; UPDATE test SET " + '"scoreShutoko"' + " = '%s' WHERE " + '"username"'+" = '%s'; COMMIT;", data)
@@ -80,7 +82,7 @@ func selectFromDB(sql:String) -> Array:
 
 func updateToDB(sql: String, data: Array):
 	var _sql
-	
+	print(sql)
 	for d in data:
 		_sql = sql % d
 		database.execute(_sql)
@@ -98,7 +100,17 @@ func deleteFromDB(sql: String, data: Array):
 		print(_sql)
 
 	database.close()
+func _authentication_error(error_object: Dictionary) -> void:
+	prints("Error connection to database:", error_object["message"])
+	
+func _close(clean_closure := true) -> void:
+	prints("DB CLOSE,", "Clean closure:", clean_closure)
+	
+func _physics_process(_delta: float) -> void:
+	database.poll()
 
+func _exit_tree() -> void:
+	database.close()
 func _ready():
 	var MapSettings= get_node("/root/GlobalVar")
 	username=MapSettings.Username

@@ -54,7 +54,7 @@ func _on_Login_button_pressed():
 	connectDB()
 	
 func _on_passwordchecker():
-	print("yes")
+	#print("yes")
 	if passwordvalid==true:
 		var MapSettings= get_node("/root/GlobalVar")
 		MapSettings.Username = checkusername
@@ -132,7 +132,7 @@ func _execSelect():
 	for d in data:
 		for n in d.size():
 			return_data += str(d[n]) + "\t"
-			print(d[n])
+			#print(d[n])
 		return_data += "\n"
 		
 	#show_data.set_text(return_data)
@@ -142,7 +142,7 @@ func _execCheckname():
 	usernamevalid=true
 	if not data.empty():
 		for d in data:
-			print(str(d[0]))
+			#print(str(d[0]))
 			if str(d[0])==checkusername:
 				usernamevalid=false
 				break
