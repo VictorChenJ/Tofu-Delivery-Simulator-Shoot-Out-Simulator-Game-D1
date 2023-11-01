@@ -54,10 +54,13 @@ func _execSelect():
 	#show_data.set_text(return_data)
 	
 func _execUpdateAkina():
-	var data = [[str(time, username)]]
+	var data = [[str(time), str(username)]]
+	print(data)
 	updateToDB("BEGIN; UPDATE test SET " + '"scoreAkina"' + " = '%s' WHERE " + '"username"'+" = '%s'; COMMIT;", data)
+	
 func _execUpdateShutoko():
-	var data = [[str(time, username)]]
+	var data = [[str(time),str( username)]]
+	print(data)
 	updateToDB("BEGIN; UPDATE test SET " + '"scoreShutoko"' + " = '%s' WHERE " + '"username"'+" = '%s'; COMMIT;", data)
 	
 func _execDelete():
@@ -100,7 +103,7 @@ func _ready():
 	var MapSettings= get_node("/root/GlobalVar")
 	username=MapSettings.Username
 	if MapSettings.AkinaPassed==true:
-		sql_type = sql_types.UPDATESAKINA
+		sql_type = sql_types.UPDATEAKINA
 		MapSettings.AkinaPassed=false
 		time=MapSettings.AkinaTime
 		connectDB()
