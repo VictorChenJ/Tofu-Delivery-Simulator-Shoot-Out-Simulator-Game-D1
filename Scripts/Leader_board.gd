@@ -1,6 +1,6 @@
 extends Control
 var scoreboard=0
-
+signal buttonpressed
 
 var database := PostgreSQLClient.new()
 const USER = "glzyjppg"
@@ -41,7 +41,7 @@ func _exit_tree() -> void:
 	
 func _execAll():
 	match sql_type:
-		sql_types.LEADERBOARDAKIAN:
+		sql_types.LEADERBOARDAKINA:
 			_execLeaderboardAkina()
 		sql_types.LEADERBOARDSHUTOKO:
 			_execLeaderboardShutoko()
@@ -50,21 +50,30 @@ func _execAll():
 	
 func _execLeaderboardAkina():
 	var data = selectFromDB("BEGIN; SELECT * FROM test ORDER BY "+ '"scoreAkina"'+ "ASC; COMMIT;")
-	var return_data = ""
-	
+	var return_data = {}
+	var count=0
+	print(data)
 	for d in data:
-		for n in d.size():
-			return_data += str(d[n]) + "\t"
-		return_data += "\n"
+		var newdata={"username": d[0], "score": d[2]}
+		return_data[count]=newdata
+		count+=1
+	var MapSettings= get_node("/root/GlobalVar")
+	MapSettings.leaderboard = return_data
+	emit_signal("buttonpressed")
+	
 
 func _execLeaderboardShutoko():
 	var data = selectFromDB("BEGIN; SELECT * FROM test ORDER BY "+ '"scoreShutoko"'+ "ASC; COMMIT;")
-	var return_data = ""
-	
+	var return_data = {}
+	var count=0
+	print(data)
 	for d in data:
-		for n in d.size():
-			return_data += str(d[n]) + "\t"
-		return_data += "\n"
+		var newdata={"username": d[0], "score": d[3]}
+		return_data[count]=newdata
+		count+=1
+	var MapSettings= get_node("/root/GlobalVar")
+	MapSettings.leaderboard = return_data
+	emit_signal("buttonpressed")
 
 func selectFromDB(sql:String) -> Array:
 	var datas := database.execute(sql)
@@ -81,8 +90,14 @@ func _on_Back_pressed():
 
 func _on_Akina_pressed():
 	scoreboard=1
-	$leaderboard_board.show()
+	sql_type = sql_types.LEADERBOARDAKINA
+	connectDB()
+
+	#$leaderboard_board.show()
 
 func _on_Shutoko_pressed():
 	scoreboard=2
-	$leaderboard_board.show()
+	sql_type = sql_types.LEADERBOARDSHUTOKO
+	connectDB()
+	
+	#$leaderboard_board.show()

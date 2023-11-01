@@ -8,7 +8,7 @@ export var activeArrow = false
 export var Username=""
 export var AkinaTime=0
 export var ShutokoTime=0
-
+export var leaderboard={}
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

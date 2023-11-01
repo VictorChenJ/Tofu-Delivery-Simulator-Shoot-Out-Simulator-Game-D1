@@ -65,6 +65,7 @@ margin_right = 81.0
 margin_bottom = 59.0
 text = "Back"
 
+[connection signal="buttonpressed" from="." to="leaderboard_board" method="_on_button_press"]
 [connection signal="pressed" from="HBoxContainer/Akina" to="." method="_on_Akina_pressed"]
 [connection signal="pressed" from="HBoxContainer/Shutoko" to="." method="_on_Shutoko_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

@@ -149,10 +149,9 @@ func _execPassword():
 	var data = selectFromDB("BEGIN; SELECT * FROM test; COMMIT;")
 	#print("d")
 	if not data.empty():
-		
 		for d in data:
 			if str(d[0])==checkusername && str(d[1])==checkpassword:
-				if is_instance_valid(d[2]):
+				if d[2] != null:
 					var MapSettings= get_node("/root/GlobalVar")
 					MapSettings.OAkinaPassed=true
 									
