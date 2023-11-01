@@ -63,7 +63,6 @@ func _on_passwordchecker():
 		$Popup/Label.text="login failed"
 		visPopup()
 
-	pass # Replace with function body.
 
 signal usernamevalidsignal
 var usernamevalid=false
@@ -82,15 +81,13 @@ func _on_usernamesignal():
 	else:
 		$Popup/Label.text="Username is taken"
 		visPopup()
-	pass # Replace with function body.
 
 func _on_Timer_timeout():
 	$Popup.hide()
-	pass # Replace with function body.
 func visPopup():
 	$Popup.show()
 	$Popup/Timer.start(1)
-	pass
+
 func _authentication_error(error_object: Dictionary) -> void:
 	prints("Error connection to database:", error_object["message"])
 	
