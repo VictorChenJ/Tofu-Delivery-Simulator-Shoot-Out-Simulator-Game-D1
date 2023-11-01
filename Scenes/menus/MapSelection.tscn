@@ -15,14 +15,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 473.0
-margin_top = 253.0
-margin_right = 550.0
-margin_bottom = 347.0
+margin_left = 466.0
+margin_top = 233.0
+margin_right = 557.0
+margin_bottom = 367.0
 custom_constants/separation = 20
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 77.0
+margin_right = 91.0
 margin_bottom = 14.0
 text = "Select Level"
 align = 1
@@ -30,15 +30,22 @@ valign = 1
 
 [node name="AkinaLevel" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 34.0
-margin_right = 77.0
+margin_right = 91.0
 margin_bottom = 54.0
 text = "Akina"
 
 [node name="ShutokoLevel" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 74.0
-margin_right = 77.0
+margin_right = 91.0
 margin_bottom = 94.0
 text = "Shutoko"
 
+[node name="Leaderboard" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 114.0
+margin_right = 91.0
+margin_bottom = 134.0
+text = "Leaderboard"
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/AkinaLevel" to="." method="_on_AkinaLevel_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ShutokoLevel" to="." method="_on_ShutokoLevel_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Leaderboard" to="." method="_on_Leaderboard_pressed"]
