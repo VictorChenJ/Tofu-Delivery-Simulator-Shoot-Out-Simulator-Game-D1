@@ -161,7 +161,7 @@ func insertToDB(sql: String, data: Array):
 	for d in data:
 		_sql = sql % d
 		database.execute(_sql)
-		print(_sql)
+		#print(_sql)
 
 	database.close()
 

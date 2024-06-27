@@ -17,15 +17,28 @@ func _on_delivery_tofu_delivered():
 		print(MapSettings.time_passed)
 		if(get_tree().current_scene.filename=="res://Scenes/maps/Akina.tscn"):
 			
-			if MapSettings.AkinaTime > MapSettings.time_passed||MapSettings.AkinaTime==0:
-				MapSettings.AkinaTime = MapSettings.time_passed
+			#if MapSettings.AkinaTime > MapSettings.time_passed||MapSettings.AkinaTime==0:
+			#	MapSettings.AkinaTime = MapSettings.time_passed
+			MapSettings.temp={
+				time=MapSettings.time_passed,
+				map="scoreAkina",
+				username=MapSettings.username,
+				id=MapSettings.id
+			}
+			Network._user_scores(MapSettings.id)
 			MapSettings.AkinaPassed=true
 			MapSettings.OAkinaPassed=true
 
 		if(get_tree().current_scene.filename=="res://Scenes/maps/Shutoko.tscn"):
 			
-			if MapSettings.ShutokoTime > MapSettings.time_passed||MapSettings.ShutokoTime==0:
-				MapSettings.ShutokoTime = MapSettings.time_passed
+			#if MapSettings.ShutokoTime > MapSettings.time_passed||MapSettings.ShutokoTime==0:
+			#	MapSettings.ShutokoTime = MapSettings.time_passed
+			MapSettings.temp={
+				time=MapSettings.time_passed,
+				map="scoreShutoko",
+				username=MapSettings.username,
+				id=MapSettings.id
+			}
 			MapSettings.ShutokoPassed=true
 		get_tree().change_scene("res://Scenes/menus/WinScreen.tscn")
 		

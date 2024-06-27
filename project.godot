@@ -21,13 +21,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Tofu Delivery Shootout"
-run/main_scene="res://Scenes/menus/Login.tscn"
+run/main_scene="res://Scenes/Network.tscn"
 config/icon="res://asset/icon.png"
 <<<<<<<HEADrun/main_scene="res://Scenes/menus/StartMenu.tscn"
 
 [autoload]
 
 GlobalVar="*res://Scenes/GlobalVar.tscn"
+Network="*res://Scripts/Network.gd"
 
 [gui]
 

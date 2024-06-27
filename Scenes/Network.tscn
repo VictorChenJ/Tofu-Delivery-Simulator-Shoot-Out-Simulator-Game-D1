@@ -1,0 +1,283 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Network.gd" type="Script" id=1]
+
+[node name="Netwock" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="BackgroundLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -87.0
+margin_top = 1.0
+margin_right = 89.0
+margin_bottom = 1.0
+expand = true
+
+[node name="MainScene" type="CanvasLayer" parent="."]
+
+[node name="Login" type="Button" parent="MainScene"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -23.0
+margin_top = -20.0
+margin_right = 23.0
+text = "Login"
+
+[node name="Signup" type="Button" parent="MainScene"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -27.0
+margin_top = 10.0
+margin_right = 27.0
+margin_bottom = 30.0
+text = "Signup"
+
+[node name="Login" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Back" type="Button" parent="Login"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -21.0
+margin_top = 30.0
+margin_right = 21.0
+margin_bottom = 50.0
+text = "Back"
+
+[node name="Login" type="Button" parent="Login"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -23.0
+margin_top = -10.0
+margin_right = 23.0
+margin_bottom = 10.0
+text = "Login"
+
+[node name="Username" type="LineEdit" parent="Login"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -115.0
+margin_top = -100.0
+margin_right = 115.0
+margin_bottom = -76.0
+placeholder_text = "Username"
+
+[node name="Password" type="LineEdit" parent="Login"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -115.0
+margin_top = -70.0
+margin_right = 115.0
+margin_bottom = -46.0
+rect_pivot_offset = Vector2( -132, 42 )
+secret = true
+placeholder_text = "Password"
+
+[node name="Warning" type="RichTextLabel" parent="Login"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.0
+margin_top = -130.0
+margin_right = 123.0
+margin_bottom = -111.0
+text = "Username or Password did not match"
+
+[node name="Warning2" type="RichTextLabel" parent="Login"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.5
+margin_top = -150.0
+margin_right = 124.5
+margin_bottom = -88.0
+text = "Username or password cannot contain these letters
+\\ / . : , ; ? * | \" ' , . ` ´ + - < >"
+
+[node name="Warning3" type="RichTextLabel" parent="Login"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.5
+margin_top = -150.0
+margin_right = 124.5
+margin_bottom = -88.0
+text = "Password cannot contain these letters
+\\ / < >: ; | \" '  ` ´ < >"
+
+[node name="Warning4" type="RichTextLabel" parent="Login"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.0
+margin_top = -120.0
+margin_right = 136.0
+margin_bottom = -88.0
+text = "Please input something in both text fields!"
+
+[node name="Signup" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Back" type="Button" parent="Signup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -27.0
+margin_top = 30.0
+margin_right = 27.0
+margin_bottom = 50.0
+text = "Back"
+
+[node name="Signup" type="Button" parent="Signup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 27.0
+margin_bottom = 10.0
+text = "Signup"
+
+[node name="Username" type="LineEdit" parent="Signup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -115.0
+margin_top = -100.0
+margin_right = 115.0
+margin_bottom = -76.0
+placeholder_text = "Username"
+
+[node name="Password" type="LineEdit" parent="Signup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -115.0
+margin_top = -70.0
+margin_right = 115.0
+margin_bottom = -46.0
+rect_pivot_offset = Vector2( -132, 42 )
+secret = true
+placeholder_text = "Password"
+
+[node name="Warning" type="RichTextLabel" parent="Signup"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 427.0
+margin_top = 180.0
+margin_right = 610.0
+margin_bottom = 199.0
+text = "Username is already taken"
+
+[node name="Warning2" type="RichTextLabel" parent="Signup"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.0
+margin_top = -150.0
+margin_right = 127.0
+margin_bottom = -88.0
+text = "Username cannot contain these letters
+\\ / < > . : , ; ? * | \" ' , . ` ´ + - < >"
+
+[node name="Warning3" type="RichTextLabel" parent="Signup"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.5
+margin_top = -150.0
+margin_right = 124.5
+margin_bottom = -88.0
+text = "Password cannot contain these letters
+\\ / < >: ; | \" '  ` ´ < >"
+
+[node name="Warning4" type="RichTextLabel" parent="Signup"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.0
+margin_top = -120.0
+margin_right = 136.0
+margin_bottom = -88.0
+text = "Please input something in both text fields!"
+
+[node name="Success" type="Panel" parent="Signup"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.92549 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -54.0
+margin_top = -134.0
+margin_right = 54.0
+margin_bottom = -103.0
+
+[node name="Success" type="RichTextLabel" parent="Signup/Success"]
+modulate = Color( 0, 0.560784, 0.192157, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -54.0
+margin_top = -15.5
+margin_right = 54.0
+margin_bottom = 15.5
+bbcode_enabled = true
+bbcode_text = "[b]Signup success![/b]
+[b]Go back to login[/b]"
+text = "Signup success!
+Go back to login"
+
+[connection signal="pressed" from="MainScene/Login" to="." method="_on_Login_pressed"]
+[connection signal="pressed" from="MainScene/Signup" to="." method="_on_Signup_pressed"]
+[connection signal="pressed" from="Login/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Login/Login" to="." method="_on_Logingame_pressed"]
+[connection signal="text_changed" from="Login/Username" to="." method="_on_Login_text_changed"]
+[connection signal="text_changed" from="Login/Password" to="." method="_on_Login_text_changed"]
+[connection signal="pressed" from="Signup/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Signup/Signup" to="." method="_on_Signupgame_pressed"]
+[connection signal="text_changed" from="Signup/Username" to="." method="_on_signup_text_changed"]
+[connection signal="text_changed" from="Signup/Password" to="." method="_on_signup_text_changed"]

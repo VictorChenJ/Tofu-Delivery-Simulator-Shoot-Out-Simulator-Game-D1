@@ -267,7 +267,7 @@ func update_health():
 #tofu stuff
 func set_tofu(value):
 	tofu += value
-	print(tofu)
+	#print(tofu)
 
 #PlayerBullet
 func shoot(direction: float, speed: float):

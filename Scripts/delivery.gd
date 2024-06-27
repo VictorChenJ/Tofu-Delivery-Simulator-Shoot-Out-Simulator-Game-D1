@@ -15,5 +15,5 @@ func _on_delivery_body_entered(body):
 			var world = get_tree().current_scene
 			world.add_child(deliveryEffectInst)
 			deliveryEffectInst.global_position = global_position
-			print(body.hp)
+			#(body.hp)
 			queue_free()
